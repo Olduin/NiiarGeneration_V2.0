@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TestXMLSchemaReport"
+    targetNamespace="http://tempuri.org/TestXMLSchemaReport.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/TestXMLSchemaReport.xsd"
+    xmlns:mstns="http://tempuri.org/TestXMLSchemaReport.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="TestXMLSchemaReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Date" type="xs:date" />
+
+        <xs:element name="TypeApplicat">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TypeApplicat" type="xs:string"/>
+              
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="ApplicatItem">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Id" type="xs:int"/>
+              <xs:element name="Customer" />
+              <xs:element name="Vehicle" />
+              <xs:element name="TypeWork" />
+              <xs:element name="Additional_description" type="xs:string" />
+              <xs:element name="Time_Of_Filing" type="xs:date" />
+              <xs:element name="End_time_of_work" type="xs:date" />
+              <xs:element name="Delivery_Address" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
