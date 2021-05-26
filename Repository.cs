@@ -47,6 +47,11 @@ namespace NiiarGeneration
             return applicatDbContext.ApplicatItems.ToList();
         }
 
+        List<ApplicatItem> GetApplicatItems(Applicat applicat)
+        {
+            return applicatDbContext.ApplicatItems.Where(ap => ap.Applicat == applicat).ToList();
+        }
+        
         public List<Vehicle> VehicleGetList()
         {
             return applicatDbContext.Vehincles.ToList();

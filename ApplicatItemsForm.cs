@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NiiarGeneration.Models;
-using DocumentFormat.OpenXml;
+using TemplateEngine.Docx;
+
 
 namespace NiiarGeneration
 {
     public partial class ApplicatItemsForm : Form
     {
         private ApplicatEditContext applicatEditContext;
+
+        private Repository repository;
 
         private BindingSource bindingSource;
                 
@@ -68,8 +71,7 @@ namespace NiiarGeneration
 
            // dgApplicat.DataSource = applicatEditContext.Applicat.ApplicatItems;
             bindingSource.ResetBindings(false);
-           
-
+                       
         }
 
         private void cbTypeApplicate_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,7 +118,38 @@ namespace NiiarGeneration
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DocxReports.Show("Reports/TestReport/test.docx", xml);
+            //repository = new Repository();
+
+            //     var  currentApplicat = repository.ApplicatGet(applicatEditContext.Applicat.Id);
+            //var currentApplicatItem = 
+
+
+            
+
+                var valuesToFill = new Content(
+
+                  new FieldContent("TypeApplicat", applicatEditContext.Applicat.Type.ToString()),
+                  new FieldContent("date", applicatEditContext.Applicat.Date.ToString()),
+
+                  new TableContent("ApplicateItems")
+
+                    .AddRow(
+                     new FieldContent("Id", applicatEditContext.Applicat.ApplicatItems[1].Id.ToString()),
+                     new FieldContent("StateNumber", applicatEditContext.Applicat.ApplicatItems[1].Vehicle.state_Number.ToString()),
+                     new FieldContent("Customer", applicatEditContext.Applicat.ApplicatItems[1].Customer.ToString()))                              
+                );
+
+                using (var outputDocument = new TemplateProcessor("Report.docx")
+                    .SetRemoveContentControls(true))
+                {
+                    outputDocument.FillContent(valuesToFill);
+                    outputDocument.SaveChanges();
+                }
+            }
         }
     }
 }
+
+//{
+
+//}
