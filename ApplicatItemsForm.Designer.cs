@@ -88,7 +88,6 @@
             this.cbTypeApplicate.Name = "cbTypeApplicate";
             this.cbTypeApplicate.Size = new System.Drawing.Size(164, 21);
             this.cbTypeApplicate.TabIndex = 7;
-            this.cbTypeApplicate.SelectedIndexChanged += new System.EventHandler(this.cbTypeApplicate_SelectedIndexChanged);
             // 
             // btSave
             // 

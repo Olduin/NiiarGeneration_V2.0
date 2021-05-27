@@ -16,8 +16,11 @@ namespace NiiarGeneration
         
         public AppContext(Repository repository)
         {
+#if DEBUG
+#else
             ShowTitleForm();
-        
+
+#endif
             this.repository = repository;
 
             currentForm = new ApplicateListForm(repository);

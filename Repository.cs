@@ -29,10 +29,17 @@ namespace NiiarGeneration
         public Applicat ApplicatGet(long id)
         {
             //  Applicat applicat = applicatDbContext.Applicats.Attach(applicat.ApplicatItems.).AsNoTracking().FirstOrDefault(ac => ac.Id == id);
-            return applicatDbContext.Applicats
+
+            var applicate = applicatDbContext.Applicats.AsNoTracking().FirstOrDefault(ac => ac.Id == id);
+
+            return applicate;
+                //return applicatDbContext.Applicats
+
                 //.Include(ai => ai.ApplicatItems)
                 //.Include(ai => ai.ApplicatItems.Select(v => v.Vehicle))
-                .AsNoTracking().FirstOrDefault(ac => ac.Id == id);
+
+               //.AsNoTracking()
+               //.FirstOrDefault(ac => ac.Id == id);
         }
 
         public List<Applicat> ApplicatsGet(long typeApplicat)

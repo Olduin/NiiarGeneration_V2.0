@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq; 
 using System.Text;
 using System.Threading.Tasks;
@@ -30,15 +31,22 @@ namespace NiiarGeneration
 
             mkApplicate.DataBindings.Add("Text", applicatEditContext.Applicat, "Date");
 
+            
             cbTypeApplicate.DisplayMember = "Name";
             cbTypeApplicate.ValueMember = "Id";
             cbTypeApplicate.DataSource = applicatEditContext.Types;
+            cbTypeApplicate.SelectedItem = applicatEditContext.Applicat.Type;
+            
 
-
+            var currentTypeIndex= cbTypeApplicate.Items.IndexOf(applicatEditContext.Applicat.Type);
+            //cbTypeApplicate.SelectedItem = cbTypeApplicate.Items[currentTypeIndex];
+            //cbTypeApplicate.SelectedIndex = currentTypeIndex;
 
             //this.dgApplicat.DataSource = applicatEditContext.Applicat.ApplicatItems;
             bindingSource = new BindingSource(applicatEditContext.Applicat, "ApplicatItems");
             this.dgApplicat.DataSource = bindingSource;
+
+            cbTypeApplicate.SelectedIndexChanged += cbTypeApplicate_SelectedIndexChanged;
         }
 
         
@@ -118,34 +126,77 @@ namespace NiiarGeneration
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //repository = new Repository();
-
-            //     var  currentApplicat = repository.ApplicatGet(applicatEditContext.Applicat.Id);
-            //var currentApplicatItem = 
-
-
             
+            TableContent tableContext = new TableContent("ApplicateItems");
 
+            foreach (ApplicatItem applicatItem in applicatEditContext.Applicat.ApplicatItems)
+            {
+                tableContext.AddRow(
+                    new FieldContent("Id", applicatItem.Id.ToString()),
+                    new FieldContent("StateNumber", applicatItem.Vehicle.state_Number.ToString()),
+                    new FieldContent("Vehicle", applicatItem.Vehicle.Name.ToString()),
+                    new FieldContent("Customer", applicatItem.Customer.ToString()),
+                    new FieldContent("TypeWork", applicatItem.TypeWork.Name.ToString()),
+                    //new FieldContent("Additional_description", applicatItem.Additional_description.ToString()),
+                    new FieldContent("Time_Of_Filing", applicatItem.Time_Of_Filing.ToString()),
+                    new FieldContent("End_time_of_work", applicatItem.End_time_of_work.ToString()),
+                    new FieldContent("Delivery_Address", applicatItem.Delivery_Address.ToString())
+                    );
+            }
                 var valuesToFill = new Content(
 
                   new FieldContent("TypeApplicat", applicatEditContext.Applicat.Type.ToString()),
-                  new FieldContent("date", applicatEditContext.Applicat.Date.ToString()),
+                  new FieldContent("Date", applicatEditContext.Applicat.Date.ToString("dd.MM.yyyy")),
 
-                  new TableContent("ApplicateItems")
+                  tableContext
 
-                    .AddRow(
-                     new FieldContent("Id", applicatEditContext.Applicat.ApplicatItems[1].Id.ToString()),
-                     new FieldContent("StateNumber", applicatEditContext.Applicat.ApplicatItems[1].Vehicle.state_Number.ToString()),
-                     new FieldContent("Customer", applicatEditContext.Applicat.ApplicatItems[1].Customer.ToString()))                              
+                  //new TableContent("ApplicateItems")
+
+                  //  .AddRow(
+                  //   new FieldContent("Id", applicatEditContext.Applicat.ApplicatItems[1].Id.ToString()),
+                  //   new FieldContent("StateNumber", applicatEditContext.Applicat.ApplicatItems[1].Vehicle.state_Number.ToString()),
+                  //   new FieldContent("Customer", applicatEditContext.Applicat.ApplicatItems[1].Customer.ToString()))                              
                 );
 
-                using (var outputDocument = new TemplateProcessor("Report.docx")
-                    .SetRemoveContentControls(true))
+            //SaveFileDialog //найти
+            Stream myStream;
+            
+            SaveFileDialog saveReportDialog = new SaveFileDialog();
+
+            saveReportDialog.Filter = "Word 2007 Documents (*.docx)|*.docx|txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveReportDialog.Title = "Сохранение отчета";
+            saveReportDialog.FilterIndex = 1;
+            saveReportDialog.RestoreDirectory = true;
+            saveReportDialog.FileName = applicatEditContext.Applicat.Type.ToString() + applicatEditContext.Applicat.Date.ToString("dd.MM.yyyy");
+
+            if (saveReportDialog.ShowDialog() == DialogResult.Cancel)
+            {
+                return;   
+            }
+
+            //if ((myStream = saveReportDialog.OpenFile()) != null)
+            //{
+                try
+                {
+                    File.Delete(saveReportDialog.FileName);
+                }
+                catch
+                {
+
+                }
+
+                File.Copy("TemplateReport.docx", saveReportDialog.FileName);
+
+                using (var outputDocument = new TemplateProcessor(saveReportDialog.FileName)
+                        .SetRemoveContentControls(true))
                 {
                     outputDocument.FillContent(valuesToFill);
                     outputDocument.SaveChanges();
+                   // myStream.Close();
                 }
-            }
+
+            //}
+            
         }
     }
 }

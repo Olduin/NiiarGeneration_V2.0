@@ -25,8 +25,9 @@ namespace NiiarGeneration
             InitializeComponent();
             this.dgApplications.DataSource = repository.ApplicatGetList();
 
-            //LoadCbTypes();
-            
+           // LoadCbTypes();
+           
+
         }
 
         
@@ -89,15 +90,16 @@ namespace NiiarGeneration
             }
         }
 
-        /* private void LoadCbTypes()
-         {
-             ApplicatEditContext applicationEditContext = new ApplicatEditContext(repository);
-            //cbType.SelectedIndex = -1;
-             cbType.ComboBox.DisplayMember = "Name";
-             cbType.ComboBox.ValueMember = "Id";
-             cbType.ComboBox.DataSource = applicationEditContext.Types;
-         }*/
+        private void LoadCbTypes()
+        {
+           ApplicatEditContext applicationEditContext = new ApplicatEditContext(repository);
+           CbType.SelectedIndex = -1;
+           CbType.ComboBox.DisplayMember = "Name";
+           CbType.ComboBox.ValueMember = "Id";
+           CbType.ComboBox.DataSource = applicationEditContext.Types;
+        }
 
+        
         private void cbType_Click(object sender, EventArgs e)
         {
             ApplicatEditContext applicationEditContext = new ApplicatEditContext(repository);
@@ -159,6 +161,13 @@ namespace NiiarGeneration
                     // repository.ty
                 }
             }
+        }
+
+        
+        private void CbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplicatEditContext applicationEditContext = new ApplicatEditContext(repository);
+           // this.dgApplications.DataSource = repository.ApplicatsGet(CbType.SelectedIndex);
         }
 
         /*private void cbType_SelectedIndexChanged(object sender, EventArgs e)

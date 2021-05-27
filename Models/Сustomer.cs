@@ -22,6 +22,10 @@ namespace NiiarGeneration.Models
         [DisplayName("Отвественное лицо")]
         public string Responsible{ get; set; }
 
+        [MaxLength(12)]
+        [DisplayName("Телефон")]
+        public string Phone { get; set; }
+
         public override string ToString()
         {
             return Name + " [" + Responsible + "]";
