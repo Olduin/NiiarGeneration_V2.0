@@ -48,6 +48,8 @@ namespace NiiarGeneration
             this.cbCustomer = new System.Windows.Forms.ComboBox();
             this.cbTypeWork = new System.Windows.Forms.ComboBox();
             this.dtEnd_time_of_work = new System.Windows.Forms.DateTimePicker();
+            this.lbAditionalDeskription = new System.Windows.Forms.Label();
+            this.tbAdditionalDescription = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // tbIdItem
@@ -69,7 +71,7 @@ namespace NiiarGeneration
             // 
             // tbDeliveryAddress
             // 
-            this.tbDeliveryAddress.Location = new System.Drawing.Point(166, 194);
+            this.tbDeliveryAddress.Location = new System.Drawing.Point(167, 221);
             this.tbDeliveryAddress.Name = "tbDeliveryAddress";
             this.tbDeliveryAddress.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tbDeliveryAddress.Size = new System.Drawing.Size(427, 20);
@@ -134,7 +136,7 @@ namespace NiiarGeneration
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(-2, 148);
+            this.label6.Location = new System.Drawing.Point(1, 169);
             this.label6.MaximumSize = new System.Drawing.Size(200, 0);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -146,7 +148,7 @@ namespace NiiarGeneration
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(51, 168);
+            this.label7.Location = new System.Drawing.Point(49, 189);
             this.label7.MaximumSize = new System.Drawing.Size(150, 0);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -158,7 +160,7 @@ namespace NiiarGeneration
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(2, 197);
+            this.label8.Location = new System.Drawing.Point(3, 224);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label8.Size = new System.Drawing.Size(160, 13);
@@ -178,7 +180,7 @@ namespace NiiarGeneration
             // dtTime_Of_Filing
             // 
             this.dtTime_Of_Filing.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtTime_Of_Filing.Location = new System.Drawing.Point(166, 142);
+            this.dtTime_Of_Filing.Location = new System.Drawing.Point(167, 169);
             this.dtTime_Of_Filing.Name = "dtTime_Of_Filing";
             this.dtTime_Of_Filing.ShowUpDown = true;
             this.dtTime_Of_Filing.Size = new System.Drawing.Size(138, 20);
@@ -186,7 +188,7 @@ namespace NiiarGeneration
             // 
             // btCansel
             // 
-            this.btCansel.Location = new System.Drawing.Point(506, 220);
+            this.btCansel.Location = new System.Drawing.Point(507, 247);
             this.btCansel.Name = "btCansel";
             this.btCansel.Size = new System.Drawing.Size(87, 23);
             this.btCansel.TabIndex = 19;
@@ -196,7 +198,7 @@ namespace NiiarGeneration
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(403, 220);
+            this.btSave.Location = new System.Drawing.Point(404, 247);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(87, 23);
             this.btSave.TabIndex = 18;
@@ -225,17 +227,38 @@ namespace NiiarGeneration
             // dtEnd_time_of_work
             // 
             this.dtEnd_time_of_work.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtEnd_time_of_work.Location = new System.Drawing.Point(166, 168);
+            this.dtEnd_time_of_work.Location = new System.Drawing.Point(167, 195);
             this.dtEnd_time_of_work.Name = "dtEnd_time_of_work";
             this.dtEnd_time_of_work.ShowUpDown = true;
             this.dtEnd_time_of_work.Size = new System.Drawing.Size(138, 20);
             this.dtEnd_time_of_work.TabIndex = 22;
             // 
+            // lbAditionalDeskription
+            // 
+            this.lbAditionalDeskription.AutoSize = true;
+            this.lbAditionalDeskription.Location = new System.Drawing.Point(78, 143);
+            this.lbAditionalDeskription.Name = "lbAditionalDeskription";
+            this.lbAditionalDeskription.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbAditionalDeskription.Size = new System.Drawing.Size(82, 13);
+            this.lbAditionalDeskription.TabIndex = 24;
+            this.lbAditionalDeskription.Text = "Доп. описание";
+            this.lbAditionalDeskription.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // tbAdditionalDescription
+            // 
+            this.tbAdditionalDescription.Location = new System.Drawing.Point(167, 143);
+            this.tbAdditionalDescription.Name = "tbAdditionalDescription";
+            this.tbAdditionalDescription.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tbAdditionalDescription.Size = new System.Drawing.Size(427, 20);
+            this.tbAdditionalDescription.TabIndex = 23;
+            // 
             // ApplicateEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 251);
+            this.ClientSize = new System.Drawing.Size(602, 304);
+            this.Controls.Add(this.lbAditionalDeskription);
+            this.Controls.Add(this.tbAdditionalDescription);
             this.Controls.Add(this.dtEnd_time_of_work);
             this.Controls.Add(this.cbTypeWork);
             this.Controls.Add(this.cbCustomer);
@@ -284,5 +307,7 @@ namespace NiiarGeneration
         private System.Windows.Forms.ComboBox cbCustomer;
         private System.Windows.Forms.ComboBox cbTypeWork;
         private System.Windows.Forms.DateTimePicker dtEnd_time_of_work;
+        private System.Windows.Forms.Label lbAditionalDeskription;
+        private System.Windows.Forms.TextBox tbAdditionalDescription;
     }
 }

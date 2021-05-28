@@ -47,6 +47,11 @@ namespace NiiarGeneration
           return applicatDbContext.Applicats.Where(ap => ap.Type.Id == typeApplicat).ToList() ;
 
         }
+
+        public List<Applicat> ApplicatGetTypes(TypeApplicat typeApplicat)
+        {
+            return applicatDbContext.Applicats.Where(ap => ap.Type.Id == typeApplicat.Id).ToList();
+        }
           
 
         public List<ApplicatItem> GetApplicatItems()

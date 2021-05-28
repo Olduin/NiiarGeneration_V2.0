@@ -36,11 +36,13 @@ namespace NiiarGeneration
             this.label1 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbResponsible = new System.Windows.Forms.TextBox();
+            this.tbPhone = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btCansel
             // 
-            this.btCansel.Location = new System.Drawing.Point(330, 80);
+            this.btCansel.Location = new System.Drawing.Point(334, 93);
             this.btCansel.Name = "btCansel";
             this.btCansel.Size = new System.Drawing.Size(87, 23);
             this.btCansel.TabIndex = 27;
@@ -50,7 +52,7 @@ namespace NiiarGeneration
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(227, 80);
+            this.btSave.Location = new System.Drawing.Point(231, 93);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(87, 23);
             this.btSave.TabIndex = 26;
@@ -96,11 +98,32 @@ namespace NiiarGeneration
             this.tbResponsible.Size = new System.Drawing.Size(274, 20);
             this.tbResponsible.TabIndex = 28;
             // 
+            // tbPhone
+            // 
+            this.tbPhone.Location = new System.Drawing.Point(147, 67);
+            this.tbPhone.Name = "tbPhone";
+            this.tbPhone.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tbPhone.Size = new System.Drawing.Size(274, 20);
+            this.tbPhone.TabIndex = 30;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(89, 70);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Телефон";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // CustomerEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 116);
+            this.ClientSize = new System.Drawing.Size(429, 125);
+            this.Controls.Add(this.tbPhone);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.tbResponsible);
             this.Controls.Add(this.btCansel);
             this.Controls.Add(this.btSave);
@@ -123,5 +146,7 @@ namespace NiiarGeneration
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbResponsible;
+        private System.Windows.Forms.TextBox tbPhone;
+        private System.Windows.Forms.Label label3;
     }
 }

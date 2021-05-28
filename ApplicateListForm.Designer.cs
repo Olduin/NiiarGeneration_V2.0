@@ -37,6 +37,7 @@
             this.btTypeWork = new System.Windows.Forms.ToolStripButton();
             this.btCustomer = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.CbType = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -57,7 +58,7 @@
             this.dgApplications.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgApplications.Location = new System.Drawing.Point(0, 0);
             this.dgApplications.Name = "dgApplications";
-            this.dgApplications.Size = new System.Drawing.Size(832, 375);
+            this.dgApplications.Size = new System.Drawing.Size(853, 375);
             this.dgApplications.TabIndex = 0;
             this.dgApplications.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgApplications_CellContentClick);
             // 
@@ -71,13 +72,14 @@
             this.btTypeWork,
             this.btCustomer,
             this.toolStripSeparator1,
+            this.toolStripLabel1,
             this.CbType,
             this.toolStripButton2,
             this.toolStripSeparator2,
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(807, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(849, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -132,11 +134,18 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel1.Image")));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(73, 22);
+            this.toolStripLabel1.Text = "Фильтры";
+            // 
             // CbType
             // 
             this.CbType.Name = "CbType";
             this.CbType.Size = new System.Drawing.Size(121, 25);
-            this.CbType.SelectedIndexChanged += new System.EventHandler(this.CbType_SelectedIndexChanged);    
+            this.CbType.SelectedIndexChanged += new System.EventHandler(this.CbType_SelectedIndexChanged);
             // 
             // toolStripButton2
             // 
@@ -146,6 +155,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripSeparator2
             // 
@@ -169,11 +179,11 @@
             // 
             this.toolStripContainer1.ContentPanel.AutoScroll = true;
             this.toolStripContainer1.ContentPanel.Controls.Add(this.dgApplications);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(832, 375);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(853, 375);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(832, 400);
+            this.toolStripContainer1.Size = new System.Drawing.Size(853, 400);
             this.toolStripContainer1.TabIndex = 3;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -185,7 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 400);
+            this.ClientSize = new System.Drawing.Size(853, 400);
             this.Controls.Add(this.toolStripContainer1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -221,5 +231,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
     }
 }

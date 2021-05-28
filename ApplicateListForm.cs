@@ -25,7 +25,7 @@ namespace NiiarGeneration
             InitializeComponent();
             this.dgApplications.DataSource = repository.ApplicatGetList();
 
-           // LoadCbTypes();
+            LoadCbTypes();
            
 
         }
@@ -51,6 +51,7 @@ namespace NiiarGeneration
                 if (editApplicatForm.DialogResult == DialogResult.OK)
                 {
                     repository.ApplicateSave(applicationEditContext.Applicat);
+                    dgApplications.DataSource = repository.ApplicatGetList();
                 }
             }
 
@@ -93,10 +94,11 @@ namespace NiiarGeneration
         private void LoadCbTypes()
         {
            ApplicatEditContext applicationEditContext = new ApplicatEditContext(repository);
-           CbType.SelectedIndex = -1;
+           
            CbType.ComboBox.DisplayMember = "Name";
            CbType.ComboBox.ValueMember = "Id";
            CbType.ComboBox.DataSource = applicationEditContext.Types;
+           CbType.SelectedIndex = -1;
         }
 
         
@@ -163,19 +165,34 @@ namespace NiiarGeneration
             }
         }
 
-        
+
         private void CbType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (CbType.SelectedIndex == -1)
+            {
+                this.dgApplications.DataSource = repository.ApplicatGetList();
+                return;
+            }
+
+            
+            
             ApplicatEditContext applicationEditContext = new ApplicatEditContext(repository);
-           // this.dgApplications.DataSource = repository.ApplicatsGet(CbType.SelectedIndex);
+            TypeApplicat typeApplicat = CbType.SelectedItem as TypeApplicat;
+            this.dgApplications.DataSource = repository.ApplicatGetTypes(typeApplicat);
+            
         }
 
-        /*private void cbType_SelectedIndexChanged(object sender, EventArgs e)
+        private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            ApplicatEditContext applicationEditContext = new ApplicatEditContext(repository);
-            long nType = cbType.SelectedIndex;
-            this.dgApplications.DataSource = repository.ApplicatsGet(nType) ;
-        }*/
+            CbType.SelectedIndex = -1;
+        }
+
+        //private void cbType_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    ApplicatEditContext applicationEditContext = new ApplicatEditContext(repository);
+        //    long nType = CbType.SelectedIndex;
+        //    this.dgApplications.DataSource = repository.ApplicatsGet(nType) ;
+        //}
     }
 }
 

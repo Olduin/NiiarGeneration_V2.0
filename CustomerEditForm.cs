@@ -34,6 +34,7 @@ namespace NiiarGeneration
         {
             tbName.Text = customer.Name;
             tbResponsible.Text = customer.Responsible;
+            tbPhone.Text = customer.Phone;
         }
 
         private void btSave_Click(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace NiiarGeneration
         {
             customer.Name = tbName.Text;
             customer.Responsible = tbResponsible.Text;
+            customer.Phone = tbPhone.Text;
 
         }
     }

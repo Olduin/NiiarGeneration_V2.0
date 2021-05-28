@@ -35,8 +35,9 @@ namespace NiiarGeneration
             cbTypeApplicate.DisplayMember = "Name";
             cbTypeApplicate.ValueMember = "Id";
             cbTypeApplicate.DataSource = applicatEditContext.Types;
-            cbTypeApplicate.SelectedItem = applicatEditContext.Applicat.Type;
-            
+            //cbTypeApplicate.SelectedItem = applicatEditContext.Applicat.Type;
+            cbTypeApplicate.SelectedValue = applicatEditContext.Applicat.Type.Id;
+
 
             var currentTypeIndex= cbTypeApplicate.Items.IndexOf(applicatEditContext.Applicat.Type);
             //cbTypeApplicate.SelectedItem = cbTypeApplicate.Items[currentTypeIndex];
@@ -167,7 +168,7 @@ namespace NiiarGeneration
             saveReportDialog.Title = "Сохранение отчета";
             saveReportDialog.FilterIndex = 1;
             saveReportDialog.RestoreDirectory = true;
-            saveReportDialog.FileName = applicatEditContext.Applicat.Type.ToString() + applicatEditContext.Applicat.Date.ToString("dd.MM.yyyy");
+            saveReportDialog.FileName = applicatEditContext.Applicat.Type.ToString() + " " + applicatEditContext.Applicat.Date.ToString("dd.MM.yyyy");
 
             if (saveReportDialog.ShowDialog() == DialogResult.Cancel)
             {

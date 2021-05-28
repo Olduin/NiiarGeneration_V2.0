@@ -66,6 +66,12 @@ namespace NiiarGeneration
             cbCustomer.ValueMember = "id";
             cbCustomer.DataSource = applicationEditContext.Customers;
 
+            
+            cbTypeWork.SelectedText = applicatItem.TypeWork?.Name;
+            cbTypeWork.DisplayMember = "Name";
+            cbTypeWork.ValueMember = "id";
+            cbTypeWork.DataSource = applicationEditContext.TypeWorks;
+
             tbStateNumber.Text = applicatItem.Vehicle?.state_Number;
 
 
@@ -78,7 +84,6 @@ namespace NiiarGeneration
                 dtTime_Of_Filing.Value = DateTime.Now;
             }
 
-
         }
 
         private void SaveData()
@@ -90,6 +95,7 @@ namespace NiiarGeneration
             applicatItem.Time_Of_Filing = dtTime_Of_Filing.Value;
             applicatItem.End_time_of_work = dtEnd_time_of_work.Value;
             applicatItem.Delivery_Address = tbDeliveryAddress.Text;
+            applicatItem.Additional_description = tbAdditionalDescription.Text;
         }
 
         private void ApplicateEditForm_Load(object sender, EventArgs e)
