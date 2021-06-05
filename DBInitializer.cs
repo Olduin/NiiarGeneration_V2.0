@@ -16,8 +16,8 @@ namespace NiiarGeneration
         {
             IList<TypeApplicat> typeApplicats = new List<TypeApplicat>
             {
-                new TypeApplicat {Name = "Обычная" },
-                new TypeApplicat {Name = "Аварийная" }
+                new TypeApplicat {Name = "Обычная заявка" },
+                new TypeApplicat {Name = "Аварийная заявка" }
                 
             };
 
@@ -50,13 +50,13 @@ namespace NiiarGeneration
 
             IList<Customer> customers = new List<Customer>
             {
-                new Customer {Name = "Электро-ремонтный цех", Responsible = "Шестаков С.Г." }, //0
-                new Customer {Name = "Химический цех (генерация углекислоты)", Responsible = "Безенкова Т.Д." },//1
-                new Customer {Name = "Группа по учету энергоносителей", Responsible = "Фомин Е.А." },//2
-                new Customer {Name = "Отдел правовых и корпоративных отношений", Responsible = "Абакумова М.А." },//3
-                new Customer {Name = "Административно-хозяйственный отдел", Responsible = "Чигрина В.В." },//4
-                new Customer {Name = "РМЦ", Responsible = "Назаров К.М." },//5
-                new Customer {Name = "Цех холодоснабжения", Responsible = "Андрианов М.Г." }//6
+                new Customer {Name = "Электро-ремонтный цех", Responsible = "Шестаков С.Г.", Phone = "+79373937117" }, //0
+                new Customer {Name = "Химический цех (генерация углекислоты)", Responsible = "Безенкова Т.Д." , Phone = "+79372743133"},//1
+                new Customer {Name = "Группа по учету энергоносителей", Responsible = "Фомин Е.А.", Phone = "+79374762661" },//2
+                new Customer {Name = "Отдел правовых и корпоративных отношений", Responsible = "Абакумова М.А.", Phone = "+79379472295" },//3
+                new Customer {Name = "Административно-хозяйственный отдел", Responsible = "Чигрина В.В.", Phone = "+79378840013" },//4
+                new Customer {Name = "РМЦ", Responsible = "Назаров К.М.", Phone = "+79379760109"},//5
+                new Customer {Name = "Цех холодоснабжения", Responsible = "Андрианов М.Г.", Phone = "+79378574194" }//6
             };
 
 

@@ -36,6 +36,12 @@ namespace NiiarGeneration
             cbTypeApplicate.ValueMember = "Id";
             cbTypeApplicate.DataSource = applicatEditContext.Types;
             //cbTypeApplicate.SelectedItem = applicatEditContext.Applicat.Type;
+            
+            if (applicatEditContext.Applicat.Type == null)
+            {
+                applicatEditContext.Applicat.Type = applicatEditContext.Types.FirstOrDefault();
+               
+            }
             cbTypeApplicate.SelectedValue = applicatEditContext.Applicat.Type.Id;
 
 
@@ -137,6 +143,7 @@ namespace NiiarGeneration
                     new FieldContent("StateNumber", applicatItem.Vehicle.state_Number.ToString()),
                     new FieldContent("Vehicle", applicatItem.Vehicle.Name.ToString()),
                     new FieldContent("Customer", applicatItem.Customer.ToString()),
+                    new FieldContent("Phone", applicatItem.Customer.Phone),
                     new FieldContent("TypeWork", applicatItem.TypeWork.Name.ToString()),
                     //new FieldContent("Additional_description", applicatItem.Additional_description.ToString()),
                     new FieldContent("Time_Of_Filing", applicatItem.Time_Of_Filing.ToString()),
@@ -148,7 +155,7 @@ namespace NiiarGeneration
 
                   new FieldContent("TypeApplicat", applicatEditContext.Applicat.Type.ToString()),
                   new FieldContent("Date", applicatEditContext.Applicat.Date.ToString("dd.MM.yyyy")),
-
+                  
                   tableContext
 
                   //new TableContent("ApplicateItems")

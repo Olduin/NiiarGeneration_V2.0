@@ -22,7 +22,7 @@ namespace NiiarGeneration.Models
         [DisplayName("Отвественное лицо")]
         public string Responsible{ get; set; }
 
-        [MaxLength(12)]
+        [MaxLength(13)]
         [DisplayName("Телефон")]
         public string Phone { get; set; }
 

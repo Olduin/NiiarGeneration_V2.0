@@ -80,6 +80,7 @@ namespace NiiarGeneration
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(119, 15);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -91,6 +92,7 @@ namespace NiiarGeneration
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(97, 38);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -102,6 +104,7 @@ namespace NiiarGeneration
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(99, 67);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -113,6 +116,7 @@ namespace NiiarGeneration
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(16, 94);
             this.label4.MaximumSize = new System.Drawing.Size(200, 0);
             this.label4.Name = "label4";
@@ -125,17 +129,19 @@ namespace NiiarGeneration
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 119);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(36, 119);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label5.Size = new System.Drawing.Size(155, 13);
+            this.label5.Size = new System.Drawing.Size(124, 13);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Описание проводимых работ";
+            this.label5.Text = "Тип проводимых работ";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(1, 169);
             this.label6.MaximumSize = new System.Drawing.Size(200, 0);
             this.label6.Name = "label6";
@@ -148,6 +154,7 @@ namespace NiiarGeneration
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Location = new System.Drawing.Point(49, 189);
             this.label7.MaximumSize = new System.Drawing.Size(150, 0);
             this.label7.Name = "label7";
@@ -160,6 +167,7 @@ namespace NiiarGeneration
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Location = new System.Drawing.Point(3, 224);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -188,22 +196,26 @@ namespace NiiarGeneration
             // 
             // btCansel
             // 
+            this.btCansel.BackColor = System.Drawing.SystemColors.Window;
+            this.btCansel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btCansel.Location = new System.Drawing.Point(507, 247);
             this.btCansel.Name = "btCansel";
             this.btCansel.Size = new System.Drawing.Size(87, 23);
             this.btCansel.TabIndex = 19;
             this.btCansel.Text = "Отмена";
-            this.btCansel.UseVisualStyleBackColor = true;
+            this.btCansel.UseVisualStyleBackColor = false;
             this.btCansel.Click += new System.EventHandler(this.btCansel_Click);
             // 
             // btSave
             // 
+            this.btSave.BackColor = System.Drawing.SystemColors.Window;
+            this.btSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btSave.Location = new System.Drawing.Point(404, 247);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(87, 23);
             this.btSave.TabIndex = 18;
             this.btSave.Text = "Сохранить";
-            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.UseVisualStyleBackColor = false;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // cbCustomer
@@ -236,6 +248,7 @@ namespace NiiarGeneration
             // lbAditionalDeskription
             // 
             this.lbAditionalDeskription.AutoSize = true;
+            this.lbAditionalDeskription.BackColor = System.Drawing.Color.Transparent;
             this.lbAditionalDeskription.Location = new System.Drawing.Point(78, 143);
             this.lbAditionalDeskription.Name = "lbAditionalDeskription";
             this.lbAditionalDeskription.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -243,6 +256,7 @@ namespace NiiarGeneration
             this.lbAditionalDeskription.TabIndex = 24;
             this.lbAditionalDeskription.Text = "Доп. описание";
             this.lbAditionalDeskription.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbAditionalDeskription.Click += new System.EventHandler(this.lbAditionalDeskription_Click);
             // 
             // tbAdditionalDescription
             // 
@@ -256,7 +270,10 @@ namespace NiiarGeneration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 304);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(602, 276);
             this.Controls.Add(this.lbAditionalDeskription);
             this.Controls.Add(this.tbAdditionalDescription);
             this.Controls.Add(this.dtEnd_time_of_work);

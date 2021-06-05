@@ -38,27 +38,30 @@ namespace NiiarGeneration
             // 
             // btCansel
             // 
+            this.btCansel.BackColor = System.Drawing.SystemColors.Window;
             this.btCansel.Location = new System.Drawing.Point(328, 56);
             this.btCansel.Name = "btCansel";
             this.btCansel.Size = new System.Drawing.Size(87, 23);
             this.btCansel.TabIndex = 27;
             this.btCansel.Text = "Отмена";
-            this.btCansel.UseVisualStyleBackColor = true;
+            this.btCansel.UseVisualStyleBackColor = false;
             this.btCansel.Click += new System.EventHandler(this.btCansel_Click);
             // 
             // btSave
             // 
+            this.btSave.BackColor = System.Drawing.SystemColors.Window;
             this.btSave.Location = new System.Drawing.Point(225, 56);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(87, 23);
             this.btSave.TabIndex = 26;
             this.btSave.Text = "Сохранить";
-            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.UseVisualStyleBackColor = false;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -79,6 +82,8 @@ namespace NiiarGeneration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(425, 94);
             this.Controls.Add(this.btCansel);
             this.Controls.Add(this.btSave);
@@ -87,7 +92,7 @@ namespace NiiarGeneration
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TypeEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Редактирование типа";
+            this.Text = "Редактирование данных о типе заявки";
             this.ResumeLayout(false);
             this.PerformLayout();
 

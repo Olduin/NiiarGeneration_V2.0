@@ -57,6 +57,7 @@
             // lbId
             // 
             this.lbId.AutoSize = true;
+            this.lbId.BackColor = System.Drawing.Color.Transparent;
             this.lbId.Location = new System.Drawing.Point(7, 9);
             this.lbId.Name = "lbId";
             this.lbId.Size = new System.Drawing.Size(80, 13);
@@ -66,6 +67,7 @@
             // lbTypeApplicat
             // 
             this.lbTypeApplicat.AutoSize = true;
+            this.lbTypeApplicat.BackColor = System.Drawing.Color.Transparent;
             this.lbTypeApplicat.Location = new System.Drawing.Point(114, 9);
             this.lbTypeApplicat.Name = "lbTypeApplicat";
             this.lbTypeApplicat.Size = new System.Drawing.Size(26, 13);
@@ -75,6 +77,7 @@
             // lbDate
             // 
             this.lbDate.AutoSize = true;
+            this.lbDate.BackColor = System.Drawing.Color.Transparent;
             this.lbDate.Location = new System.Drawing.Point(274, 9);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(72, 13);
@@ -91,22 +94,26 @@
             // 
             // btSave
             // 
+            this.btSave.BackColor = System.Drawing.SystemColors.Window;
+            this.btSave.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btSave.Location = new System.Drawing.Point(669, 347);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(87, 23);
             this.btSave.TabIndex = 8;
             this.btSave.Text = "Сохранить";
-            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.UseVisualStyleBackColor = false;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // btCansel
             // 
+            this.btCansel.BackColor = System.Drawing.SystemColors.Window;
+            this.btCansel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btCansel.Location = new System.Drawing.Point(762, 347);
             this.btCansel.Name = "btCansel";
             this.btCansel.Size = new System.Drawing.Size(87, 23);
             this.btCansel.TabIndex = 9;
             this.btCansel.Text = "Отмена";
-            this.btCansel.UseVisualStyleBackColor = true;
+            this.btCansel.UseVisualStyleBackColor = false;
             this.btCansel.Click += new System.EventHandler(this.btCansel_Click);
             // 
             // entityCommand1
@@ -128,6 +135,7 @@
             // 
             // dgApplicat
             // 
+            this.dgApplicat.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dgApplicat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgApplicat.Location = new System.Drawing.Point(0, 52);
             this.dgApplicat.Name = "dgApplicat";
@@ -137,32 +145,38 @@
             // 
             // btAddItem
             // 
+            this.btAddItem.BackColor = System.Drawing.SystemColors.Window;
+            this.btAddItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btAddItem.Location = new System.Drawing.Point(0, 347);
             this.btAddItem.Name = "btAddItem";
             this.btAddItem.Size = new System.Drawing.Size(113, 23);
             this.btAddItem.TabIndex = 14;
             this.btAddItem.Text = "Добавить строку";
-            this.btAddItem.UseVisualStyleBackColor = true;
+            this.btAddItem.UseVisualStyleBackColor = false;
             this.btAddItem.Click += new System.EventHandler(this.btAddItem_Click);
             // 
             // btDelete
             // 
+            this.btDelete.BackColor = System.Drawing.SystemColors.Window;
+            this.btDelete.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btDelete.Location = new System.Drawing.Point(119, 347);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(113, 23);
             this.btDelete.TabIndex = 15;
             this.btDelete.Text = "Удалить строку";
-            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.UseVisualStyleBackColor = false;
             this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.SystemColors.Window;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button2.Location = new System.Drawing.Point(238, 347);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 23);
             this.button2.TabIndex = 16;
             this.button2.Text = "Создать отчет";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ApplicatItemsForm
@@ -171,6 +185,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(851, 372);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btDelete);

@@ -83,6 +83,12 @@
     <Compile Include="ApplicatItemsForm.Designer.cs">
       <DependentUpon>ApplicatItemsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TypeWorkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TypeWorkForm.Designer.cs">
+      <DependentUpon>TypeWorkForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Applicat.cs" />
     <Compile Include="Models\TypeApplicat.cs" />
     <Compile Include="Models\TypeWork.cs" />
@@ -121,12 +127,6 @@
     </Compile>
     <Compile Include="TypeWorkEditForm.Designer.cs">
       <DependentUpon>TypeWorkEditForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TypeWorkForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TypeWorkForm.Designer.cs">
-      <DependentUpon>TypeWorkForm.cs</DependentUpon>
     </Compile>
     <Compile Include="VehicleEditContext.cs" />
     <Compile Include="VehicleEditForm.cs">
@@ -193,6 +193,9 @@
     <EmbeddedResource Include="CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TypeWorkForm.resx">
+      <DependentUpon>TypeWorkForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TitleForm.resx">
       <DependentUpon>TitleForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,9 +211,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TypeWorkEditForm.resx">
       <DependentUpon>TypeWorkEditForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TypeWorkForm.resx">
-      <DependentUpon>TypeWorkForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VehicleEditForm.resx">
       <DependentUpon>VehicleEditForm.cs</DependentUpon>

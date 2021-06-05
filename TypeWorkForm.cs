@@ -13,7 +13,7 @@ namespace NiiarGeneration
 {
     public partial class TypeWorkForm : Form
     {
-      
+
         private VehicleEditContext vehicleEditContext;
 
         private TypeWorkContext typeWorkContext;
@@ -48,15 +48,8 @@ namespace NiiarGeneration
             typeWorkEditForm.ShowDialog();
         }
 
-        private void btCansel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
-        private void btSave_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void LoadData()
         {
@@ -64,7 +57,13 @@ namespace NiiarGeneration
             this.dgTypeWorks.DataSource = typeWorkContext.TypeWorks;
         }
 
-        private void btDelete_Click(object sender, EventArgs e)
+        
+        private void btCansel_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btDelete_Click_1(object sender, EventArgs e)
         {
             long delitedRowId = Convert.ToInt64(dgTypeWorks.CurrentRow.Cells[0].Value);
 
@@ -76,6 +75,16 @@ namespace NiiarGeneration
             dgTypeWorks.DataSource = typeWorkContext.TypeWorks;
             dgTypeWorks.Refresh();
         }
+
+        private void btSave_Click_1(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btAddItem_Click_1(object sender, EventArgs e)
+        {
+            typeWorkContext.TypeWorks.Add(new TypeWork());
+            bindingSource.ResetBindings(false);
+        }
     }
 }
-        

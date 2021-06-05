@@ -42,27 +42,30 @@ namespace NiiarGeneration
             // 
             // btCansel
             // 
+            this.btCansel.BackColor = System.Drawing.SystemColors.Window;
             this.btCansel.Location = new System.Drawing.Point(334, 93);
             this.btCansel.Name = "btCansel";
             this.btCansel.Size = new System.Drawing.Size(87, 23);
             this.btCansel.TabIndex = 27;
             this.btCansel.Text = "Отмена";
-            this.btCansel.UseVisualStyleBackColor = true;
+            this.btCansel.UseVisualStyleBackColor = false;
             this.btCansel.Click += new System.EventHandler(this.btCansel_Click);
             // 
             // btSave
             // 
+            this.btSave.BackColor = System.Drawing.SystemColors.Window;
             this.btSave.Location = new System.Drawing.Point(231, 93);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(87, 23);
             this.btSave.TabIndex = 26;
             this.btSave.Text = "Сохранить";
-            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.UseVisualStyleBackColor = false;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(37, 41);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -74,6 +77,7 @@ namespace NiiarGeneration
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(4, 12);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -109,6 +113,7 @@ namespace NiiarGeneration
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(89, 70);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -121,6 +126,8 @@ namespace NiiarGeneration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(429, 125);
             this.Controls.Add(this.tbPhone);
             this.Controls.Add(this.label3);

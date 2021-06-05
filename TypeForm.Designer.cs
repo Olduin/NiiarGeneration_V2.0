@@ -46,6 +46,7 @@ namespace NiiarGeneration
             // 
             // toolStripContainer1.ContentPanel
             // 
+            this.toolStripContainer1.ContentPanel.BackColor = System.Drawing.SystemColors.Window;
             this.toolStripContainer1.ContentPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.toolStripContainer1.ContentPanel.Controls.Add(this.btSave);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.btDelete);
@@ -61,9 +62,15 @@ namespace NiiarGeneration
             this.toolStripContainer1.TabIndex = 28;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
+            // toolStripContainer1.TopToolStripPanel
+            // 
+            this.toolStripContainer1.TopToolStripPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolStripContainer1.TopToolStripPanel.BackgroundImage")));
+            this.toolStripContainer1.TopToolStripPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            // 
             // btSave
             // 
-            this.btSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btSave.BackColor = System.Drawing.SystemColors.Window;
+            this.btSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btSave.Dock = System.Windows.Forms.DockStyle.Right;
             this.btSave.Location = new System.Drawing.Point(624, 310);
             this.btSave.Name = "btSave";
@@ -71,12 +78,13 @@ namespace NiiarGeneration
             this.btSave.TabIndex = 31;
             this.btSave.Text = "Сохранить";
             this.btSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.UseVisualStyleBackColor = false;
             this.btSave.Click += new System.EventHandler(this.btSave_Click_1);
             // 
             // btDelete
             // 
-            this.btDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btDelete.BackColor = System.Drawing.SystemColors.Window;
+            this.btDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btDelete.Dock = System.Windows.Forms.DockStyle.Left;
             this.btDelete.Location = new System.Drawing.Point(113, 310);
             this.btDelete.Name = "btDelete";
@@ -84,12 +92,13 @@ namespace NiiarGeneration
             this.btDelete.TabIndex = 30;
             this.btDelete.Text = "Удалить тип";
             this.btDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.UseVisualStyleBackColor = false;
             this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // btAddItem
             // 
-            this.btAddItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btAddItem.BackColor = System.Drawing.SystemColors.Window;
+            this.btAddItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btAddItem.Dock = System.Windows.Forms.DockStyle.Left;
             this.btAddItem.Location = new System.Drawing.Point(0, 310);
             this.btAddItem.Name = "btAddItem";
@@ -97,12 +106,13 @@ namespace NiiarGeneration
             this.btAddItem.TabIndex = 29;
             this.btAddItem.Text = "Добавить тип";
             this.btAddItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btAddItem.UseVisualStyleBackColor = true;
+            this.btAddItem.UseVisualStyleBackColor = false;
             this.btAddItem.Click += new System.EventHandler(this.btAddItem_Click);
             // 
             // btCansel
             // 
-            this.btCansel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btCansel.BackColor = System.Drawing.SystemColors.Window;
+            this.btCansel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btCansel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btCansel.Location = new System.Drawing.Point(711, 310);
             this.btCansel.Name = "btCansel";
@@ -110,11 +120,12 @@ namespace NiiarGeneration
             this.btCansel.TabIndex = 28;
             this.btCansel.Text = "Отмена";
             this.btCansel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btCansel.UseVisualStyleBackColor = true;
+            this.btCansel.UseVisualStyleBackColor = false;
             this.btCansel.Click += new System.EventHandler(this.btCansel_Click);
             // 
             // dgType
             // 
+            this.dgType.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dgType.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgType.Dock = System.Windows.Forms.DockStyle.Top;

@@ -102,6 +102,11 @@ namespace NiiarGeneration
         {
 
         }
+
+        private void lbAditionalDeskription_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

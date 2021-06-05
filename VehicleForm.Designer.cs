@@ -46,6 +46,7 @@ namespace NiiarGeneration
             // 
             // toolStripContainer1.ContentPanel
             // 
+            this.toolStripContainer1.ContentPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolStripContainer1.ContentPanel.BackgroundImage")));
             this.toolStripContainer1.ContentPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.toolStripContainer1.ContentPanel.Controls.Add(this.btSave);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.btDelete);
@@ -61,8 +62,14 @@ namespace NiiarGeneration
             this.toolStripContainer1.TabIndex = 27;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
+            // toolStripContainer1.TopToolStripPanel
+            // 
+            this.toolStripContainer1.TopToolStripPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolStripContainer1.TopToolStripPanel.BackgroundImage")));
+            this.toolStripContainer1.TopToolStripPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            // 
             // btSave
             // 
+            this.btSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btSave.BackgroundImage")));
             this.btSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btSave.Dock = System.Windows.Forms.DockStyle.Right;
             this.btSave.Location = new System.Drawing.Point(517, 284);
@@ -75,6 +82,7 @@ namespace NiiarGeneration
             // 
             // btDelete
             // 
+            this.btDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btDelete.BackgroundImage")));
             this.btDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btDelete.Dock = System.Windows.Forms.DockStyle.Left;
             this.btDelete.Location = new System.Drawing.Point(113, 284);
@@ -88,6 +96,7 @@ namespace NiiarGeneration
             // 
             // btAddItem
             // 
+            this.btAddItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btAddItem.BackgroundImage")));
             this.btAddItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btAddItem.Dock = System.Windows.Forms.DockStyle.Left;
             this.btAddItem.Location = new System.Drawing.Point(0, 284);
@@ -100,6 +109,7 @@ namespace NiiarGeneration
             // 
             // btCansel
             // 
+            this.btCansel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btCansel.BackgroundImage")));
             this.btCansel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btCansel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btCansel.Location = new System.Drawing.Point(604, 284);
@@ -113,6 +123,7 @@ namespace NiiarGeneration
             // 
             // dgVehicle
             // 
+            this.dgVehicle.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dgVehicle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgVehicle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgVehicle.Dock = System.Windows.Forms.DockStyle.Top;
@@ -128,6 +139,8 @@ namespace NiiarGeneration
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(693, 310);
             this.Controls.Add(this.toolStripContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

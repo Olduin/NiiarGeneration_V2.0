@@ -54,16 +54,19 @@
             // 
             // dgApplications
             // 
+            this.dgApplications.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dgApplications.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgApplications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgApplications.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgApplications.Location = new System.Drawing.Point(0, 0);
+            this.dgApplications.Location = new System.Drawing.Point(69, 18);
             this.dgApplications.Name = "dgApplications";
-            this.dgApplications.Size = new System.Drawing.Size(853, 375);
+            this.dgApplications.Size = new System.Drawing.Size(669, 334);
             this.dgApplications.TabIndex = 0;
             this.dgApplications.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgApplications_CellContentClick);
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.Window;
+            this.toolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btAddApplicat,
@@ -79,7 +82,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(849, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(830, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -97,8 +100,8 @@
             this.btVehicles.Image = ((System.Drawing.Image)(resources.GetObject("btVehicles.Image")));
             this.btVehicles.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btVehicles.Name = "btVehicles";
-            this.btVehicles.Size = new System.Drawing.Size(161, 22);
-            this.btVehicles.Text = "Справочник транспорта";
+            this.btVehicles.Size = new System.Drawing.Size(142, 22);
+            this.btVehicles.Text = "Справочник техники";
             this.btVehicles.Click += new System.EventHandler(this.btVehicles_Click);
             // 
             // btType
@@ -168,7 +171,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -178,24 +181,28 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.AutoScroll = true;
+            this.toolStripContainer1.ContentPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolStripContainer1.ContentPanel.BackgroundImage")));
+            this.toolStripContainer1.ContentPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.toolStripContainer1.ContentPanel.Controls.Add(this.dgApplications);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(853, 375);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(833, 375);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(853, 400);
+            this.toolStripContainer1.Size = new System.Drawing.Size(833, 400);
             this.toolStripContainer1.TabIndex = 3;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
+            this.toolStripContainer1.TopToolStripPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolStripContainer1.TopToolStripPanel.BackgroundImage")));
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // ApplicateListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 400);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(833, 400);
             this.Controls.Add(this.toolStripContainer1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
