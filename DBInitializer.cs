@@ -9,7 +9,7 @@ using SQLite.CodeFirst;
 
 namespace NiiarGeneration
 {
-    public class DBInitializer : SqliteCreateDatabaseIfNotExists<ApplicatDbContext>
+    public class DBInitializer : SqliteDropCreateDatabaseWhenModelChanges<ApplicatDbContext>
     {
         public DBInitializer(DbModelBuilder modelBuilder)
             : base(modelBuilder) { }

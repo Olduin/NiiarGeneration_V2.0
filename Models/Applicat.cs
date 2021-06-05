@@ -26,6 +26,11 @@ namespace NiiarGeneration.Models
         [DisplayName("Список")]
         public virtual List<ApplicatItem> ApplicatItems{ get; set; }
 
+        public Applicat()
+        {
+            ApplicatItems = new List<ApplicatItem>();
+        }
+
         public override string ToString()
         {
             return Id.ToString() ;
