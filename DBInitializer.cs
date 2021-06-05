@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using NiiarGeneration.Models;
-
+using SQLite.CodeFirst;
 
 namespace NiiarGeneration
 {
-    public class DBInitializer : DropCreateDatabaseIfModelChanges<ApplicatDbContext>
+    public class DBInitializer : SqliteCreateDatabaseIfNotExists<ApplicatDbContext>
     {
+        public DBInitializer(DbModelBuilder modelBuilder)
+            : base(modelBuilder) { }
 
         protected override void Seed(ApplicatDbContext dbContext)
         {

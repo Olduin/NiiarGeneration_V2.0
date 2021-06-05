@@ -5,15 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using NiiarGeneration.Models;
+using SQLite.CodeFirst;
 
 namespace NiiarGeneration
 {
     public class ApplicatDbContext : DbContext
     {
         public ApplicatDbContext()
-            : base("Server=localHost\\SQLEXPRESS;Integrated Security=True;Initial Catalog=Applicat")
+           : base("Name=ApplicatDbContext")
         {
-            Database.SetInitializer(new DBInitializer());
+            //Database.SetInitializer(new DBInitializer());
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            var sqliteConnectionInitializer = new DBInitializer(modelBuilder);
+            Database.SetInitializer(sqliteConnectionInitializer);
         }
 
         public DbSet<TypeApplicat> TypeApplicates { get; set; }
