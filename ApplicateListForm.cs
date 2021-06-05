@@ -128,7 +128,7 @@ namespace NiiarGeneration
         {
             // Help.ShowHelp(helpProvider1, "help.html");
             
-            System.Diagnostics.Process.Start("file:///C:/Users/oldui/source/repos/NiiarGeneration/Myhelp.html");
+           // System.Diagnostics.Process.Start("file://D:\проект\NiiarGeneration-Dev\NiiarGeneration-Dev\Myhelp.html");
 
         }
 

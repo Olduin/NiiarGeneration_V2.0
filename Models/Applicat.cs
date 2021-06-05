@@ -9,26 +9,32 @@ using System.ComponentModel;
 
 namespace NiiarGeneration.Models
 {
-    [Table ("Applicates")]    
-   
+    [Table("Applicates")]
+
     public class Applicat
-    { 
+    {
+        
         [Key]
         [DisplayName("№")]
         public int Id { get; set; }
 
         [DisplayName("Дата")]
-        public DateTime Date{ get; set; }
+        public DateTime Date { get; set; }
 
         [DisplayName("Тип заявки")]
         public virtual TypeApplicat Type { get; set; }
 
         [DisplayName("Список")]
-        public virtual List<ApplicatItem> ApplicatItems{ get; set; }
+        public virtual List<ApplicatItem> ApplicatItems { get; set; }
 
         public override string ToString()
         {
-            return Id.ToString() ;
+            return Id.ToString();
+        }
+
+        public Applicat()
+        {
+            ApplicatItems = new List<ApplicatItem>();
         }
     }   
 }

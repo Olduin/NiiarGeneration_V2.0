@@ -77,6 +77,7 @@ namespace NiiarGeneration
                         ApplicateEditForm applicateEditForm = new ApplicateEditForm(applicatEditContext);
                         applicateEditForm.ShowDialog();
                         */
+            
             if(applicatEditContext.Applicat == null)
             {
                 applicatEditContext.Applicat = new Applicat();

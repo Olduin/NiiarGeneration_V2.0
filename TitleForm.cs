@@ -19,6 +19,7 @@ namespace NiiarGeneration
             rtbTitle.SelectAll();
             rtbTitle.SelectionAlignment = HorizontalAlignment.Center;
             rtbTitle.DeselectAll();
+            rtbTitle.ReadOnly = true;
             
                
         }
