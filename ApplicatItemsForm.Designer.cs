@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicatItemsForm));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tbId = new System.Windows.Forms.TextBox();
@@ -38,12 +39,16 @@
             this.btSave = new System.Windows.Forms.Button();
             this.btCansel = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.mkApplicate = new System.Windows.Forms.MaskedTextBox();
             this.dgApplicat = new System.Windows.Forms.DataGridView();
             this.btAddItem = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.dtpDateApplicate = new System.Windows.Forms.DateTimePicker();
+            this.CmApplicatItems = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addApplicate = new System.Windows.Forms.ToolStripMenuItem();
+            this.DelApplicate = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgApplicat)).BeginInit();
+            this.CmApplicatItems.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbId
@@ -124,15 +129,6 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
-            // mkApplicate
-            // 
-            this.mkApplicate.Location = new System.Drawing.Point(277, 26);
-            this.mkApplicate.Mask = "00/00/0000";
-            this.mkApplicate.Name = "mkApplicate";
-            this.mkApplicate.Size = new System.Drawing.Size(100, 20);
-            this.mkApplicate.TabIndex = 11;
-            this.mkApplicate.ValidatingType = typeof(System.DateTime);
-            // 
             // dgApplicat
             // 
             this.dgApplicat.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -142,6 +138,7 @@
             this.dgApplicat.Size = new System.Drawing.Size(849, 294);
             this.dgApplicat.TabIndex = 12;
             this.dgApplicat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgApplicat_CellClick);
+            this.dgApplicat.Click += new System.EventHandler(this.dgApplicat_Click);
             // 
             // btAddItem
             // 
@@ -179,6 +176,37 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // dtpDateApplicate
+            // 
+            this.dtpDateApplicate.CustomFormat = "";
+            this.dtpDateApplicate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateApplicate.Location = new System.Drawing.Point(277, 26);
+            this.dtpDateApplicate.Name = "dtpDateApplicate";
+            this.dtpDateApplicate.Size = new System.Drawing.Size(200, 20);
+            this.dtpDateApplicate.TabIndex = 17;
+            // 
+            // CmApplicatItems
+            // 
+            this.CmApplicatItems.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addApplicate,
+            this.DelApplicate});
+            this.CmApplicatItems.Name = "CmApplicatItems";
+            this.CmApplicatItems.Size = new System.Drawing.Size(167, 48);
+            // 
+            // addApplicate
+            // 
+            this.addApplicate.Name = "addApplicate";
+            this.addApplicate.Size = new System.Drawing.Size(166, 22);
+            this.addApplicate.Text = "Добавить строку";
+            this.addApplicate.Click += new System.EventHandler(this.addApplicate_Click);
+            // 
+            // DelApplicate
+            // 
+            this.DelApplicate.Name = "DelApplicate";
+            this.DelApplicate.Size = new System.Drawing.Size(166, 22);
+            this.DelApplicate.Text = "Удалить строку";
+            this.DelApplicate.Click += new System.EventHandler(this.DelApplicate_Click);
+            // 
             // ApplicatItemsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,11 +215,11 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(851, 372);
+            this.Controls.Add(this.dtpDateApplicate);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btDelete);
             this.Controls.Add(this.btAddItem);
             this.Controls.Add(this.dgApplicat);
-            this.Controls.Add(this.mkApplicate);
             this.Controls.Add(this.btCansel);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.cbTypeApplicate);
@@ -206,6 +234,7 @@
             this.Text = "Строки заявки";
             this.Load += new System.EventHandler(this.ApplicatItemsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgApplicat)).EndInit();
+            this.CmApplicatItems.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,10 +251,13 @@
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.Button btCansel;
         private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
-        private System.Windows.Forms.MaskedTextBox mkApplicate;
         private System.Windows.Forms.DataGridView dgApplicat;
         private System.Windows.Forms.Button btAddItem;
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DateTimePicker dtpDateApplicate;
+        private System.Windows.Forms.ContextMenuStrip CmApplicatItems;
+        private System.Windows.Forms.ToolStripMenuItem addApplicate;
+        private System.Windows.Forms.ToolStripMenuItem DelApplicate;
     }
 }

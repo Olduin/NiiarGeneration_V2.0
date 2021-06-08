@@ -17,7 +17,8 @@ namespace NiiarGeneration.Models
         [DisplayName("№")]
         public int Id { get; set; }
 
-        [DisplayName("Дата")]
+        [DisplayName("Дата")] 
+        [DataType("Date")]
         public DateTime Date{ get; set; }
 
         [DisplayName("Тип заявки")]
@@ -28,12 +29,16 @@ namespace NiiarGeneration.Models
 
         public Applicat()
         {
+            Date = DateTime.Now.Date;
             ApplicatItems = new List<ApplicatItem>();
         }
 
         public override string ToString()
         {
-            return Id.ToString() ;
+            return Id.ToString();
         }
+
+
+
     }   
 }

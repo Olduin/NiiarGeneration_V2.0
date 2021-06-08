@@ -16,7 +16,7 @@ namespace NiiarGeneration
         
         private ApplicatEditContext applicationEditContext;
 
-        private ApplicatItem applicatItem;
+        public ApplicatItem applicatItem;
       
         public ApplicateEditForm(ApplicatEditContext applicationEditContext, int rowIndex)
         {
@@ -41,7 +41,7 @@ namespace NiiarGeneration
         private void btSave_Click(object sender, EventArgs e)
         {
             SaveData();
-            this.DialogResult = DialogResult.OK;            
+            this.DialogResult = DialogResult.OK; 
         }
 
         private void btCansel_Click(object sender, EventArgs e)
@@ -89,13 +89,15 @@ namespace NiiarGeneration
         private void SaveData()
         {
             applicatItem.Customer = cbCustomer.SelectedItem as Customer;
-            applicatItem.TypeWork= cbCustomer.SelectedItem as TypeWork;
+            applicatItem.TypeWork= cbTypeWork.SelectedItem as TypeWork;
             applicatItem.Vehicle = cbVehicle.SelectedItem as Vehicle;
             //applicatItem.Vehicle.state_Number 
             applicatItem.Time_Of_Filing = dtTime_Of_Filing.Value;
             applicatItem.End_time_of_work = dtEnd_time_of_work.Value;
-            applicatItem.Delivery_Address = tbDeliveryAddress.Text;
+            applicatItem.Delivery_Address = tbDeliveryAddress.Text;      
             applicatItem.Additional_description = tbAdditionalDescription.Text;
+            
+            applicatItem.Applicat = applicationEditContext.Applicat;
         }
 
         private void ApplicateEditForm_Load(object sender, EventArgs e)
@@ -104,6 +106,11 @@ namespace NiiarGeneration
         }
 
         private void lbAditionalDeskription_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbTypeWork_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

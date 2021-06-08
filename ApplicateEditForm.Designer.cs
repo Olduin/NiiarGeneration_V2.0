@@ -155,13 +155,13 @@ namespace NiiarGeneration
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(49, 189);
+            this.label7.Location = new System.Drawing.Point(27, 197);
             this.label7.MaximumSize = new System.Drawing.Size(150, 0);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label7.Size = new System.Drawing.Size(111, 26);
+            this.label7.Size = new System.Drawing.Size(136, 13);
             this.label7.TabIndex = 14;
-            this.label7.Text = "Продолжительность использования";
+            this.label7.Text = "Время окончания работы";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label8
@@ -235,9 +235,11 @@ namespace NiiarGeneration
             this.cbTypeWork.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cbTypeWork.Size = new System.Drawing.Size(426, 21);
             this.cbTypeWork.TabIndex = 21;
+            this.cbTypeWork.SelectedIndexChanged += new System.EventHandler(this.cbTypeWork_SelectedIndexChanged);
             // 
             // dtEnd_time_of_work
             // 
+            this.dtEnd_time_of_work.CustomFormat = "";
             this.dtEnd_time_of_work.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtEnd_time_of_work.Location = new System.Drawing.Point(167, 195);
             this.dtEnd_time_of_work.Name = "dtEnd_time_of_work";

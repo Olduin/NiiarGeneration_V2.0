@@ -126,7 +126,7 @@ namespace NiiarGeneration
             sourseApplicat.Type = applicat.Type;
             sourseApplicat.Date = applicat.Date;
 
-            for(int index = 0; index<sourseApplicat.ApplicatItems.Count; index++)
+            for (int index = 0; index < sourseApplicat.ApplicatItems.Count; index++)
             {
                 var oldItem = sourseApplicat.ApplicatItems[index];
                 var newItem = applicat.ApplicatItems.Find(ni => ni.Id == oldItem.Id);
@@ -139,6 +139,16 @@ namespace NiiarGeneration
                     applicatDbContext.Entry(oldItem).State = EntityState.Deleted;
 
             }
+
+            foreach (ApplicatItem applicatItem in applicat.ApplicatItems)
+            {
+                if(applicatItem.Id == 0)
+                {
+                    sourseApplicat.ApplicatItems.Add(applicatItem);
+                }
+                
+            }
+
             applicatDbContext.SaveChanges();
 
             /*foreach( var ai in sourseApplicat.ApplicatItems)

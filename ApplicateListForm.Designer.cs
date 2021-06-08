@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicateListForm));
             this.dgApplications = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.добавитьЗаявкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьЗаявкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btAddApplicat = new System.Windows.Forms.ToolStripButton();
             this.btVehicles = new System.Windows.Forms.ToolStripButton();
@@ -44,8 +48,8 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dgApplications)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -57,11 +61,35 @@
             this.dgApplications.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dgApplications.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgApplications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgApplications.ContextMenuStrip = this.contextMenuStrip1;
             this.dgApplications.Location = new System.Drawing.Point(69, 18);
             this.dgApplications.Name = "dgApplications";
+            this.dgApplications.ReadOnly = true;
             this.dgApplications.Size = new System.Drawing.Size(669, 334);
             this.dgApplications.TabIndex = 0;
             this.dgApplications.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgApplications_CellContentClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьЗаявкуToolStripMenuItem,
+            this.удалитьЗаявкуToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 48);
+            // 
+            // добавитьЗаявкуToolStripMenuItem
+            // 
+            this.добавитьЗаявкуToolStripMenuItem.Name = "добавитьЗаявкуToolStripMenuItem";
+            this.добавитьЗаявкуToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.добавитьЗаявкуToolStripMenuItem.Text = "Добавить заявку";
+            this.добавитьЗаявкуToolStripMenuItem.Click += new System.EventHandler(this.btAddApplicat_Click_1);
+            // 
+            // удалитьЗаявкуToolStripMenuItem
+            // 
+            this.удалитьЗаявкуToolStripMenuItem.Name = "удалитьЗаявкуToolStripMenuItem";
+            this.удалитьЗаявкуToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.удалитьЗаявкуToolStripMenuItem.Text = "Удалить заявку";
+            this.удалитьЗаявкуToolStripMenuItem.Click += new System.EventHandler(this.удалитьЗаявкуToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -171,7 +199,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -210,6 +238,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Заявки";
             ((System.ComponentModel.ISupportInitialize)(this.dgApplications)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
@@ -231,7 +260,6 @@
         private System.Windows.Forms.ToolStripButton btType;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.HelpProvider helpProvider1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolStripButton btTypeWork;
         private System.Windows.Forms.ToolStripButton btCustomer;
         private System.Windows.Forms.ToolStripComboBox CbType;
@@ -239,5 +267,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem добавитьЗаявкуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьЗаявкуToolStripMenuItem;
     }
 }

@@ -20,7 +20,9 @@ namespace NiiarGeneration
 
         private Repository repository;
 
-        private BindingSource bindingSource;
+        //private BindingSource bindingSource;
+
+        private BindingList<ApplicatItem> blApplicatItems;
                 
         public ApplicatItemsForm(ApplicatEditContext applicatEditContext)
         {
@@ -28,14 +30,20 @@ namespace NiiarGeneration
             InitializeComponent();
 
             tbId.DataBindings.Add("Text", applicatEditContext.Applicat, "Id");
-
-            mkApplicate.DataBindings.Add("Text", applicatEditContext.Applicat, "Date");
-
-            
+                      
+            dtpDateApplicate.DataBindings.Add("Value", applicatEditContext.Applicat, "Date");
+          
             cbTypeApplicate.DisplayMember = "Name";
             cbTypeApplicate.ValueMember = "Id";
             cbTypeApplicate.DataSource = applicatEditContext.Types;
             //cbTypeApplicate.SelectedItem = applicatEditContext.Applicat.Type;
+
+
+            
+            dgApplicat.ContextMenuStrip = CmApplicatItems;
+            
+
+            btDelete.Enabled = false;
             
             if (applicatEditContext.Applicat.Type == null)
             {
@@ -46,20 +54,26 @@ namespace NiiarGeneration
 
 
             var currentTypeIndex= cbTypeApplicate.Items.IndexOf(applicatEditContext.Applicat.Type);
-            //cbTypeApplicate.SelectedItem = cbTypeApplicate.Items[currentTypeIndex];
-            //cbTypeApplicate.SelectedIndex = currentTypeIndex;
 
-            //this.dgApplicat.DataSource = applicatEditContext.Applicat.ApplicatItems;
-            bindingSource = new BindingSource(applicatEditContext.Applicat, "ApplicatItems");
-            this.dgApplicat.DataSource = bindingSource;
+            //bindingSource = new BindingSource(applicatEditContext.Applicat, "ApplicatItems");
+            blApplicatItems = new BindingList<ApplicatItem>(applicatEditContext.Applicat.ApplicatItems);
+
+           // BindingList<ApplicatItem> blApplicatItems = new BindingList<ApplicatItem>(applicatEditContext.Applicat.ApplicatItems);
+            this.dgApplicat.DataSource = blApplicatItems;
+
+            //this.dgApplicat.DataBindings.Add()
 
             cbTypeApplicate.SelectedIndexChanged += cbTypeApplicate_SelectedIndexChanged;
+            
         }
 
         
         private void btSave_Click(object sender, EventArgs e)
         {
+            //applicatEditContext.Applicat.Date = dtpDateApplicate.Value;
+           
             this.DialogResult = DialogResult.OK;
+            
         }
 
         private void btCansel_Click(object sender, EventArgs e)
@@ -72,20 +86,7 @@ namespace NiiarGeneration
 
         private void btAddItem_Click(object sender, EventArgs e)
         {
-         
-            /*ApplicatItem applicatItem = new ApplicatItem();
-                        ApplicateEditForm applicateEditForm = new ApplicateEditForm(applicatEditContext);
-                        applicateEditForm.ShowDialog();
-                        */
-            if(applicatEditContext.Applicat == null)
-            {
-                applicatEditContext.Applicat = new Applicat();
-            }
-
-            applicatEditContext.Applicat.ApplicatItems.Add(new ApplicatItem());
-
-           // dgApplicat.DataSource = applicatEditContext.Applicat.ApplicatItems;
-            bindingSource.ResetBindings(false);
+            AddRow();           
                        
         }
 
@@ -94,26 +95,19 @@ namespace NiiarGeneration
             applicatEditContext.Applicat.Type = cbTypeApplicate.SelectedItem as TypeApplicat;
         }
 
-        private void btDelete_Click(object sender, EventArgs e, DataGridViewCellEventArgs d)
-        {
-            /*DataGridViewRow row = dgApplicat.Rows[d.RowIndex];
-            applicatEditContext.Applicat.ApplicatItems.Remove(applicatEditContext.Applicat.ApplicatItems[Convert.ToInt32(row.ToString())]);
-            */
-            bindingSource = new BindingSource(applicatEditContext.Applicat, "ApplicatItems");
-            bindingSource.Remove(dgApplicat.Rows[d.RowIndex]);
+        //private void btDelete_Click(object sender, EventArgs e, DataGridViewCellEventArgs d)
+        //{
+        //    /*DataGridViewRow row = dgApplicat.Rows[d.RowIndex];
+        //    applicatEditContext.Applicat.ApplicatItems.Remove(applicatEditContext.Applicat.ApplicatItems[Convert.ToInt32(row.ToString())]);
+        //    */
+        //    bindingSource = new BindingSource(applicatEditContext.Applicat, "ApplicatItems");
+        //    bindingSource.Remove(dgApplicat.Rows[d.RowIndex]);
 
-        }
+        //}
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            long delitedRowId = Convert.ToInt64(dgApplicat.CurrentRow.Cells[0].Value);
-
-            
-            ApplicatItem delitedAI = applicatEditContext.Applicat.ApplicatItems.FirstOrDefault(ai => ai.Id == delitedRowId);
-
-            applicatEditContext.Applicat.ApplicatItems.Remove(delitedAI);
-
-            dgApplicat.DataSource = applicatEditContext.Applicat.ApplicatItems;
+            DelitRow();
             dgApplicat.Refresh();
         }
 
@@ -129,6 +123,17 @@ namespace NiiarGeneration
 
             ApplicateEditForm applicateEditForm = new ApplicateEditForm(applicatEditContext, e.RowIndex);
             applicateEditForm.ShowDialog();
+
+            //if(applicateEditForm.DialogResult == DialogResult.OK)
+            //{
+            //    applicatEditContext.Applicat.ApplicatItems.Add(applicateEditForm.applicatItem);
+            //}
+
+            BtDelit_ChangeState();
+            //bindingSource = new BindingSource(applicatEditContext.Applicat, "ApplicatItems");
+
+            dgApplicat.Refresh();
+           //bindingSource.ResetBindings(false);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -140,16 +145,16 @@ namespace NiiarGeneration
             {
                 tableContext.AddRow(
                     new FieldContent("Id", applicatItem.Id.ToString()),
-                    new FieldContent("StateNumber", applicatItem.Vehicle.state_Number.ToString()),
-                    new FieldContent("Vehicle", applicatItem.Vehicle.Name.ToString()),
+                    new FieldContent("StateNumber", applicatItem.Vehicle.state_Number),
+                    new FieldContent("Vehicle", applicatItem.Vehicle.Name),
                     new FieldContent("Customer", applicatItem.Customer.ToString()),
                     new FieldContent("Phone", applicatItem.Customer.Phone),
-                    new FieldContent("TypeWork", applicatItem.TypeWork.Name.ToString()),
-                    //new FieldContent("Additional_description", applicatItem.Additional_description.ToString()),
+                    new FieldContent("TypeWork", applicatItem.TypeWork.Name),
+                    new FieldContent("Additional_description", applicatItem.Additional_description == null  ? string.Empty : applicatItem.Additional_description),
                     new FieldContent("Time_Of_Filing", applicatItem.Time_Of_Filing.ToString()),
                     new FieldContent("End_time_of_work", applicatItem.End_time_of_work.ToString()),
-                    new FieldContent("Delivery_Address", applicatItem.Delivery_Address.ToString())
-                    );
+                    new FieldContent("Delivery_Address", applicatItem.Delivery_Address)
+                    ) ;
             }
                 var valuesToFill = new Content(
 
@@ -157,16 +162,9 @@ namespace NiiarGeneration
                   new FieldContent("Date", applicatEditContext.Applicat.Date.ToString("dd.MM.yyyy")),
                   
                   tableContext
-
-                  //new TableContent("ApplicateItems")
-
-                  //  .AddRow(
-                  //   new FieldContent("Id", applicatEditContext.Applicat.ApplicatItems[1].Id.ToString()),
-                  //   new FieldContent("StateNumber", applicatEditContext.Applicat.ApplicatItems[1].Vehicle.state_Number.ToString()),
-                  //   new FieldContent("Customer", applicatEditContext.Applicat.ApplicatItems[1].Customer.ToString()))                              
+                                   
                 );
-
-            //SaveFileDialog //найти
+                        
             Stream myStream;
             
             SaveFileDialog saveReportDialog = new SaveFileDialog();
@@ -206,6 +204,75 @@ namespace NiiarGeneration
             //}
             
         }
+
+        private void AddRow()
+        {
+            
+            if (applicatEditContext.Applicat == null)
+            {
+                applicatEditContext.Applicat = new Applicat();
+            }
+
+            applicatEditContext.Applicat.ApplicatItems.Add(new ApplicatItem());
+
+            //bindingSource.ResetBindings(false);
+            blApplicatItems.ResetBindings();
+        }
+
+        private void DelitRow()
+        {
+            try
+            {
+                long delitedRowId = Convert.ToInt64(dgApplicat.CurrentRow.Cells[0].Value);
+
+                ApplicatItem delitedAI = applicatEditContext.Applicat.ApplicatItems.FirstOrDefault(ai => ai.Id == delitedRowId);
+
+                applicatEditContext.Applicat.ApplicatItems.Remove(delitedAI);
+            }
+            catch
+            {
+                MessageBox.Show(
+                    "Отсутсвует строка",
+                    "Сообщение об ошибке",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+
+
+            dgApplicat.DataSource = applicatEditContext.Applicat.ApplicatItems;
+            dgApplicat.Refresh();
+
+            BtDelit_ChangeState();
+        }
+
+        private void BtDelit_ChangeState()
+        {
+            if (dgApplicat.SelectedCells == null)
+            {
+                btDelete.Enabled = false;
+            }
+            else
+            {
+                btDelete.Enabled = true;
+            }
+        }
+
+        private void dgApplicat_Click(object sender, EventArgs e)
+        {
+            BtDelit_ChangeState();
+        }
+
+        private void DelApplicate_Click(object sender, EventArgs e)
+        {
+            DelitRow();
+        }
+
+        private void addApplicate_Click(object sender, EventArgs e)
+        {
+            AddRow();
+        }
+      
     }
 }
 

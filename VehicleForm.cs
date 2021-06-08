@@ -15,8 +15,7 @@ namespace NiiarGeneration
     public partial class VehicleForm : Form
     {
         private VehicleEditContext vehicleEditContext;
-
-     
+             
         int currentVehicle;
 
         private BindingSource bindingSource;
@@ -59,12 +58,7 @@ namespace NiiarGeneration
 
             this.dgVehicle.DataSource = vehicleEditContext.Vehincles;
         }
-
-        private void VehicleForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
+                
         private void btCansel_Click_1(object sender, EventArgs e)
         {
             Close();

@@ -16,18 +16,14 @@ namespace NiiarGeneration
     {
         private Repository repository;
         
-
         public ApplicateListForm(Repository repository)
         {
             this.repository = repository;
             
-
             InitializeComponent();
             this.dgApplications.DataSource = repository.ApplicatGetList();
 
-            LoadCbTypes();
-           
-
+            LoadCbTypes();        
         }
 
         
@@ -62,7 +58,7 @@ namespace NiiarGeneration
             ApplicatEditContext applicatEditContext = new ApplicatEditContext(repository);
 
             applicatEditContext.Applicat = new Applicat();
-                                   
+                                               
             using (ApplicatItemsForm ApplicatItemsForm = new ApplicatItemsForm(applicatEditContext))
             {
                 ApplicatItemsForm.ShowDialog();
@@ -70,8 +66,10 @@ namespace NiiarGeneration
                 if (ApplicatItemsForm.DialogResult == DialogResult.OK)
                 {
                     repository.ApplicateAdd(applicatEditContext.Applicat);
+                    this.dgApplications.DataSource = repository.ApplicatGetList();
                 }
             }
+            
         }
 
         private void btVehicles_Click(object sender, EventArgs e)
@@ -128,7 +126,7 @@ namespace NiiarGeneration
         {
             // Help.ShowHelp(helpProvider1, "help.html");
             
-            System.Diagnostics.Process.Start("file:///C:/Users/oldui/source/repos/NiiarGeneration/Myhelp.html");
+            System.Diagnostics.Process.Start("Myhelp.html");
 
         }
 
@@ -185,6 +183,34 @@ namespace NiiarGeneration
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             CbType.SelectedIndex = -1;
+        }
+
+        private void удалитьЗаявкуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ApplicatEditContext applicatEditContext = new ApplicatEditContext(repository);
+            //try
+            //{
+            //    long delitedRowId = Convert.ToInt64(dgApplications.CurrentRow.Cells[0].Value);
+
+            //    Applicat delitedAI = applicatEditContext.Applicat.(ai => ai.Id == delitedRowId);
+
+            //    applicatEditContext.Applicat.Remove(delitedAI);
+            //}
+            //catch
+            //{
+            //    MessageBox.Show(
+            //        "Отсутсвует строка",
+            //        "Сообщение об ошибке",
+            //        MessageBoxButtons.OK,
+            //        MessageBoxIcon.Error);
+            //}
+
+
+
+            //dgApplicat.DataSource = applicatEditContext.Applicat.ApplicatItems;
+            //dgApplicat.Refresh();
+
+            //DelitChanges();
         }
 
         //private void cbType_SelectedIndexChanged(object sender, EventArgs e)

@@ -85,11 +85,11 @@ namespace NiiarGeneration
             this.btDelete.BackColor = System.Drawing.SystemColors.Window;
             this.btDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btDelete.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btDelete.Location = new System.Drawing.Point(113, 284);
+            this.btDelete.Location = new System.Drawing.Point(130, 284);
             this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(113, 26);
+            this.btDelete.Size = new System.Drawing.Size(124, 26);
             this.btDelete.TabIndex = 30;
-            this.btDelete.Text = "Списать технику";
+            this.btDelete.Text = "Удалить заявителя";
             this.btDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btDelete.UseVisualStyleBackColor = false;
             this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
@@ -101,9 +101,9 @@ namespace NiiarGeneration
             this.btAddItem.Dock = System.Windows.Forms.DockStyle.Left;
             this.btAddItem.Location = new System.Drawing.Point(0, 284);
             this.btAddItem.Name = "btAddItem";
-            this.btAddItem.Size = new System.Drawing.Size(113, 26);
+            this.btAddItem.Size = new System.Drawing.Size(130, 26);
             this.btAddItem.TabIndex = 29;
-            this.btAddItem.Text = "Добавить технику";
+            this.btAddItem.Text = "Добавить заявителя";
             this.btAddItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btAddItem.UseVisualStyleBackColor = false;
             this.btAddItem.Click += new System.EventHandler(this.btAddItem_Click);
