@@ -13,9 +13,11 @@ namespace NiiarGeneration
 {
     public partial class VehicleEditForm : Form
     {
-        private VehicleEditContext vehicleEditContext;
+       private VehicleEditContext vehicleEditContext;     
 
         private Vehicle vehicle;
+
+        Repository repository;
 
         public VehicleEditForm(VehicleEditContext vehicleEditContext, int rowIndex)
         {
@@ -26,8 +28,8 @@ namespace NiiarGeneration
         }
 
         private void btSave_Click(object sender, EventArgs e)
-        {
-            SaveData();
+        { 
+            SaveData();            
             this.DialogResult = DialogResult.OK;
         }
         

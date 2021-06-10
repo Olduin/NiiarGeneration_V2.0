@@ -37,9 +37,7 @@ namespace NiiarGeneration
             cbTypeApplicate.ValueMember = "Id";
             cbTypeApplicate.DataSource = applicatEditContext.Types;
             //cbTypeApplicate.SelectedItem = applicatEditContext.Applicat.Type;
-
-
-            
+                        
             dgApplicat.ContextMenuStrip = CmApplicatItems;
             
 
@@ -58,10 +56,13 @@ namespace NiiarGeneration
             //bindingSource = new BindingSource(applicatEditContext.Applicat, "ApplicatItems");
             blApplicatItems = new BindingList<ApplicatItem>(applicatEditContext.Applicat.ApplicatItems);
 
-           // BindingList<ApplicatItem> blApplicatItems = new BindingList<ApplicatItem>(applicatEditContext.Applicat.ApplicatItems);
+            // BindingList<ApplicatItem> blApplicatItems = new BindingList<ApplicatItem>(applicatEditContext.Applicat.ApplicatItems);
             this.dgApplicat.DataSource = blApplicatItems;
 
             //this.dgApplicat.DataBindings.Add()
+
+            //ApplicateItemsRefresh();
+            
 
             cbTypeApplicate.SelectedIndexChanged += cbTypeApplicate_SelectedIndexChanged;
             
@@ -79,9 +80,7 @@ namespace NiiarGeneration
         private void btCansel_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        
+        }      
       
 
         private void btAddItem_Click(object sender, EventArgs e)
@@ -107,8 +106,21 @@ namespace NiiarGeneration
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            DelitRow();
-            dgApplicat.Refresh();
+            ApplicatItem applicatItem = dgApplicat.CurrentRow.DataBoundItem as ApplicatItem;
+            if(applicatItem == null)
+            {
+                return;
+            }
+            blApplicatItems.Remove(applicatItem);
+
+            applicatEditContext.DeleteItem(applicatItem);
+
+            //ApplicateItemsRefresh();
+
+
+            //DelitRow();
+            //blApplicatItems.Remove(applicatItem);
+            //dgApplicat.Refresh();
         }
 
         private void ApplicatItemsForm_Load(object sender, EventArgs e)
@@ -124,15 +136,19 @@ namespace NiiarGeneration
             ApplicateEditForm applicateEditForm = new ApplicateEditForm(applicatEditContext, e.RowIndex);
             applicateEditForm.ShowDialog();
 
-            //if(applicateEditForm.DialogResult == DialogResult.OK)
-            //{
-            //    applicatEditContext.Applicat.ApplicatItems.Add(applicateEditForm.applicatItem);
-            //}
+            if (applicateEditForm.DialogResult == DialogResult.OK)
+            {
+                //applicatEditContext.Applicat.ApplicatItems.Add(applicateEditForm.applicatItem);
+                //blApplicatItems.Add(applicateEditForm.applicatItem);
+                dgApplicat.Refresh() ;
+            }
 
             BtDelit_ChangeState();
             //bindingSource = new BindingSource(applicatEditContext.Applicat, "ApplicatItems");
 
-            dgApplicat.Refresh();
+            //blApplicatItems.ResetBindings();
+
+           //dgApplicat.Refresh();
            //bindingSource.ResetBindings(false);
         }
 
@@ -219,32 +235,32 @@ namespace NiiarGeneration
             blApplicatItems.ResetBindings();
         }
 
-        private void DelitRow()
-        {
-            try
-            {
-                long delitedRowId = Convert.ToInt64(dgApplicat.CurrentRow.Cells[0].Value);
+        //private void DelitRow()
+        //{
+        //    try
+        //    {
+        //        long delitedRowId = Convert.ToInt64(dgApplicat.CurrentRow.Cells[0].Value);
 
-                ApplicatItem delitedAI = applicatEditContext.Applicat.ApplicatItems.FirstOrDefault(ai => ai.Id == delitedRowId);
+        //        ApplicatItem delitedAI = applicatEditContext.Applicat.ApplicatItems.FirstOrDefault(ai => ai.Id == delitedRowId);
 
-                applicatEditContext.Applicat.ApplicatItems.Remove(delitedAI);
-            }
-            catch
-            {
-                MessageBox.Show(
-                    "Отсутсвует строка",
-                    "Сообщение об ошибке",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+        //        applicatEditContext.Applicat.ApplicatItems.Remove(delitedAI);
+        //    }
+        //    catch
+        //    {
+        //        MessageBox.Show(
+        //            "Отсутсвует строка",
+        //            "Сообщение об ошибке",
+        //            MessageBoxButtons.OK,
+        //            MessageBoxIcon.Error);
+        //    }
 
 
 
-            dgApplicat.DataSource = applicatEditContext.Applicat.ApplicatItems;
-            dgApplicat.Refresh();
+        //    //dgApplicat.DataSource = applicatEditContext.Applicat.ApplicatItems;
+        //    //dgApplicat.Refresh();
 
-            BtDelit_ChangeState();
-        }
+        //    BtDelit_ChangeState();
+        //}
 
         private void BtDelit_ChangeState()
         {
@@ -265,17 +281,19 @@ namespace NiiarGeneration
 
         private void DelApplicate_Click(object sender, EventArgs e)
         {
-            DelitRow();
+            //DelitRow();
         }
 
         private void addApplicate_Click(object sender, EventArgs e)
         {
             AddRow();
         }
-      
+
+        //private void ApplicateItemsRefresh()
+        //{
+        //    dgApplicat.DataSource = applicatEditContext.Applicat.ApplicatItems;
+        //    dgApplicat.Refresh();
+        //}
     }
 }
 
-//{
-
-//}

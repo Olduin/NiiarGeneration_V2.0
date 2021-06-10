@@ -14,18 +14,24 @@ namespace NiiarGeneration
     public partial class TypeForm : Form
     {
         private TypeContext typeContext;
+     
+        private BindingSource bindingSource;               
 
-        int currentType;
-
-        private BindingSource bindingSource;
+        private List<TypeApplicat> typeApplicats = new List<TypeApplicat>();
 
         public TypeForm(TypeContext typeContext)
         {
             this.typeContext = typeContext;
             InitializeComponent();
 
-            bindingSource = new BindingSource(typeContext, "Types");
-            this.dgType.DataSource = bindingSource;
+            //bindingSource = new BindingSource(this, "typeApplicats");
+            //bindingSource = new BindingSource(typeContext, "Types");
+            //dgType.DataSource = bindingSource;
+            
+         
+            //dgType.DataBindings.Add(new BindingSource())
+            LoadData();
+           // typeContext.ReloadType();
         }
 
         private void btSave_Click(object sender, EventArgs e)
@@ -41,13 +47,21 @@ namespace NiiarGeneration
         private void btAddItem_Click(object sender, EventArgs e)
         {
             typeContext.Types.Add(new TypeApplicat());
-            bindingSource.ResetBindings(false);
+            //bindingSource.ResetBindings(false);
+            //LoadData();
         }
 
         private void LoadData()
         {
+            //typeApplicats.AddRange(typeContext.repository.GetTypesList());
+            //this.dgType.DataSource = typeContext.Types;
+            
+            typeContext.ReloadType();
+            dgType.DataSource = typeContext.Types;
+            //blTypeApplicats.RaiseListChangedEvents;
+           
 
-            this.dgType.DataSource = typeContext.Types;
+           //bindingSource.ResetBindings(true) ;
         }
 
         private void dgType_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -55,25 +69,46 @@ namespace NiiarGeneration
             if (e.RowIndex < 0)
                 return;
 
-            currentType = e.RowIndex;
-            TypeEditForm typeEditForm = new TypeEditForm(typeContext, currentType);
+            TypeApplicat editTypeApplicate = typeContext.Types[e.RowIndex];
+           
+
+            //currentType = e.RowIndex;
+            //TypeEditForm typeEditForm = new TypeEditForm(typeContext, currentType);
+
+            TypeEditForm typeEditForm = new TypeEditForm { TypeApplicateName = editTypeApplicate.Name }; 
             typeEditForm.ShowDialog();
+            if(typeEditForm.DialogResult == DialogResult.OK)
+            {
+                editTypeApplicate.Name = typeEditForm.TypeApplicateName;
+
+                typeContext.repository.TypeApplicateSaveOrAdd(editTypeApplicate);
+            }
 
         }
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            long delitedRowId = Convert.ToInt64(dgType.CurrentRow.Cells[0].Value);
+            TypeApplicat typeApplicat = dgType.CurrentRow.DataBoundItem as TypeApplicat;
 
+            if (typeApplicat == null) return;
 
-           TypeApplicat delitedTp = typeContext.Types.FirstOrDefault(tp => tp.Id == delitedRowId);
+            if (!typeContext.repository.TypeApplicateDelete(typeApplicat))
+            {
+                MessageBox.Show("Удалить тип не удалось! Данная запись имеет смежные связи", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // long delitedRowId = Convert.ToInt64(dgType.CurrentRow.Cells[0].Value);
 
-            typeContext.Types.Remove(delitedTp);
+            //TypeApplicat delitedTp = typeContext.Types.FirstOrDefault(tp => tp.Id == delitedRowId);
 
-            dgType.DataSource = typeContext.Types;
-            dgType.Refresh();
+            // typeContext.Types.Remove(delitedTp);
+
+            // dgType.DataSource = typeContext.Types;
+
+            LoadData();
+            //typeContext.ReloadType();
         }
 
+       
         private void btSave_Click_1(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;

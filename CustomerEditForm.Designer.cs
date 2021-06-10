@@ -49,7 +49,7 @@ namespace NiiarGeneration
             this.btCansel.TabIndex = 27;
             this.btCansel.Text = "Отмена";
             this.btCansel.UseVisualStyleBackColor = false;
-            this.btCansel.Click += new System.EventHandler(this.btCansel_Click);
+            this.btCansel.Click += new System.EventHandler(this.btCansel_Click_1);
             // 
             // btSave
             // 
@@ -60,7 +60,7 @@ namespace NiiarGeneration
             this.btSave.TabIndex = 26;
             this.btSave.Text = "Сохранить";
             this.btSave.UseVisualStyleBackColor = false;
-            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            this.btSave.Click += new System.EventHandler(this.btSave_Click_1);
             // 
             // label2
             // 

@@ -9,13 +9,18 @@ namespace NiiarGeneration
 {
     public class CustomerEditContext
     {
-        private Repository repository;
+        public Repository repository;
 
         public List<Customer> Customers { get; set; }
 
         public CustomerEditContext(Repository repository)
         {
             this.repository = repository;
+        }
+
+        public void ReloadCustomer()
+        {
+            Customers = repository.CustomerGetList();
         }
     }
 }

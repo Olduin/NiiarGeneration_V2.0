@@ -132,6 +132,7 @@ namespace NiiarGeneration
             this.ClientSize = new System.Drawing.Size(663, 367);
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "TypeWorkForm";
+            this.Text = "Виды работ";
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();

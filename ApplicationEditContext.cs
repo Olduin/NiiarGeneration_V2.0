@@ -34,6 +34,7 @@ namespace NiiarGeneration
         public ApplicatEditContext(Repository repository)
         {
             this.repository = repository;
+            deletedItems = new List<ApplicatItem>();
         }
 
 

@@ -9,7 +9,7 @@ namespace NiiarGeneration
 {
     public class TypeContext
     {
-        private Repository repository;
+        public Repository repository { get; private set; }
 
         public List<TypeApplicat> Types{ get; set; }
 
@@ -17,6 +17,12 @@ namespace NiiarGeneration
         {
             this.repository = repository;
         }
+
+        public void ReloadType()
+        {
+            Types = repository.GetTypesList();
+        }
+        
     }
 
 

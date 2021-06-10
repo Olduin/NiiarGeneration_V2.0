@@ -131,10 +131,13 @@
             // 
             // dgApplicat
             // 
+            this.dgApplicat.AllowUserToAddRows = false;
+            this.dgApplicat.AllowUserToDeleteRows = false;
             this.dgApplicat.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dgApplicat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgApplicat.Location = new System.Drawing.Point(0, 52);
             this.dgApplicat.Name = "dgApplicat";
+            this.dgApplicat.ReadOnly = true;
             this.dgApplicat.Size = new System.Drawing.Size(849, 294);
             this.dgApplicat.TabIndex = 12;
             this.dgApplicat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgApplicat_CellClick);

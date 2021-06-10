@@ -184,6 +184,7 @@ namespace NiiarGeneration
             this.cbVehicle.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cbVehicle.Size = new System.Drawing.Size(426, 21);
             this.cbVehicle.TabIndex = 16;
+            this.cbVehicle.SelectedIndexChanged += new System.EventHandler(this.cbVehicle_SelectedIndexChanged);
             // 
             // dtTime_Of_Filing
             // 

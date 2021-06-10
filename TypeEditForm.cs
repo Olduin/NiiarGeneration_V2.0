@@ -13,36 +13,46 @@ namespace NiiarGeneration
 {
     public partial class TypeEditForm : Form
     {
-        private TypeContext typeContext;
-        private TypeApplicat typeApplicat;
+        //private TypeContext typeContext;
+        //private TypeApplicat typeApplicat;
 
-        public TypeEditForm(TypeContext typeContext, int rowIndex)
+        public string TypeApplicateName { get; set; }
+
+
+        //public TypeEditForm(TypeContext typeContext, int rowIndex)
+        //{
+        //    //this.typeContext = typeContext;
+        //    //this.typeApplicat = typeContext.Types[rowIndex];
+        //    InitializeComponent();
+        //    //LoadData();
+        //}
+
+        public TypeEditForm()
         {
-            this.typeContext = typeContext;
-            this.typeApplicat = typeContext.Types[rowIndex];
             InitializeComponent();
-            LoadData();
+            
+            tbName.DataBindings.Add(new Binding("Text", this, "TypeApplicateName"));
         }
 
         private void btCansel_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-        private void LoadData()
-        {
-            tbName.Text = typeApplicat.Name;
-        }
-
-        private void SaveData()
-        {
-            typeApplicat.Name = tbName.Text;
-        }
-
+        
         private void btSave_Click(object sender, EventArgs e)
         {
-            SaveData();
+            //SaveData();
             this.DialogResult = DialogResult.OK;
         }
+
+        //private void LoadData()
+        //{
+        //    tbName.Text = typeApplicat.Name;
+        //}
+
+        //private void SaveData()
+        //{
+        //    typeApplicat.Name = tbName.Text;
+        //}
     }
 }

@@ -13,16 +13,27 @@ namespace NiiarGeneration
 {
     public partial class CustomerEditForm : Form
     {
-        private CustomerEditContext customerEditContext;
+        //private CustomerEditContext customerEditContext;
 
-        private Customer customer;
+        //private Customer customer;
 
-        public CustomerEditForm(CustomerEditContext customerEditContext, int rowIndex)
+        public string CustomerName { get; set; }
+
+        public string Responsible { get; set; }
+
+        public string CustomerPhone { get; set; }
+
+        public CustomerEditForm()
         {
-            this.customerEditContext = customerEditContext;
-            this.customer = customerEditContext.Customers[rowIndex];
+            
             InitializeComponent();
-            LoadData();
+
+            tbName.DataBindings.Add("Text", this, "CustomerName");
+
+            tbResponsible.DataBindings.Add("Text", this, "Responsible");
+
+            tbPhone.DataBindings.Add("Text", this, "CustomerPhone");
+
         }
 
         private void btCansel_Click(object sender, EventArgs e)
@@ -30,25 +41,35 @@ namespace NiiarGeneration
             this.Close();
         }
 
-        private void LoadData()
-        {
-            tbName.Text = customer.Name;
-            tbResponsible.Text = customer.Responsible;
-            tbPhone.Text = customer.Phone;
-        }
+        //private void LoadData()
+        //{
+        //    tbName.Text = customer.Name;
+        //    tbResponsible.Text = customer.Responsible;
+        //    tbPhone.Text = customer.Phone;
+        //}
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            SaveData();
+            //SaveData();
             this.DialogResult = DialogResult.OK;
         }
 
-        private void SaveData()
+        private void btCansel_Click_1(object sender, EventArgs e)
         {
-            customer.Name = tbName.Text;
-            customer.Responsible = tbResponsible.Text;
-            customer.Phone = tbPhone.Text;
-
+            Close();
         }
+
+        private void btSave_Click_1(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        //private void SaveData()
+        //{
+        //    customer.Name = tbName.Text;
+        //    customer.Responsible = tbResponsible.Text;
+        //    customer.Phone = tbPhone.Text;
+
+        //}
     }
 }

@@ -12,8 +12,7 @@ using NiiarGeneration.Models;
 namespace NiiarGeneration
 {
     public partial class ApplicateEditForm : Form
-    {
-        
+    {        
         private ApplicatEditContext applicationEditContext;
 
         public ApplicatItem applicatItem;
@@ -28,15 +27,15 @@ namespace NiiarGeneration
             LoadData();
         }
 
-        public ApplicateEditForm(ApplicatEditContext applicationEditContext)
-        {
-            this.applicationEditContext = applicationEditContext;
-            //this.applicatItem = applicationEditContext.Applicat.ApplicatItems.Add(new applicatItem);
-            applicationEditContext.Applicat.ApplicatItems.Add(applicatItem);
-            InitializeComponent();
+        //public ApplicateEditForm(ApplicatEditContext applicationEditContext)
+        //{
+        //    this.applicationEditContext = applicationEditContext;
+        //    //this.applicatItem = applicationEditContext.Applicat.ApplicatItems.Add(new applicatItem);
+        //    applicationEditContext.Applicat.ApplicatItems.Add(applicatItem);
+        //    InitializeComponent();
 
-            LoadData();
-        }
+        //    LoadData();
+        //}
 
         private void btSave_Click(object sender, EventArgs e)
         {
@@ -72,8 +71,8 @@ namespace NiiarGeneration
             cbTypeWork.ValueMember = "id";
             cbTypeWork.DataSource = applicationEditContext.TypeWorks;
 
-            tbStateNumber.Text = applicatItem.Vehicle?.state_Number;
-
+            //tbStateNumber.Text = applicatItem.Vehicle?.state_Number;
+            tbStateNumber_ChangeValue(applicatItem.Vehicle);
 
             if (applicatItem.Time_Of_Filing != null)
             {
@@ -100,6 +99,11 @@ namespace NiiarGeneration
             applicatItem.Applicat = applicationEditContext.Applicat;
         }
 
+        private void tbStateNumber_ChangeValue(Vehicle vehicle)
+        {
+            tbStateNumber.Text = vehicle?.state_Number;
+        }
+
         private void ApplicateEditForm_Load(object sender, EventArgs e)
         {
 
@@ -113,6 +117,11 @@ namespace NiiarGeneration
         private void cbTypeWork_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbVehicle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbStateNumber_ChangeValue(cbVehicle.SelectedItem as Vehicle);
         }
     }
 }

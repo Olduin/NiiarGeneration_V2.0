@@ -82,10 +82,11 @@ namespace NiiarGeneration
             {
                 vehicleForm.ShowDialog();
 
-                /* if (vehicleForm.DialogResult == DialogResult.OK)
+                if (vehicleForm.DialogResult == DialogResult.OK)
                 {
-                    repository.VehicleSave(vehicleEditContext.Vehincle);
-                }*/
+                    //repository.VehicleSave(vehicleEditContext.Vehincles);
+                    
+                }
             }
         }
 
@@ -109,7 +110,7 @@ namespace NiiarGeneration
         private void btType_Click(object sender, EventArgs e)
         {
             TypeContext typeContext = new TypeContext(repository);
-            typeContext.Types = repository.GetTypesList();
+            //typeContext.Types = repository.GetTypesList();
 
             using (TypeForm typeForm = new TypeForm(typeContext))
             {
@@ -175,7 +176,7 @@ namespace NiiarGeneration
             
             
             ApplicatEditContext applicationEditContext = new ApplicatEditContext(repository);
-            TypeApplicat typeApplicat = CbType.SelectedItem as TypeApplicat;
+            TypeApplicat typeApplicat = CbType.SelectedItem as TypeApplicat;         
             this.dgApplications.DataSource = repository.ApplicatGetTypes(typeApplicat);
             
         }
@@ -212,6 +213,8 @@ namespace NiiarGeneration
 
             //DelitChanges();
         }
+
+    
 
         //private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         //{

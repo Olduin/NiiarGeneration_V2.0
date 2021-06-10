@@ -79,6 +79,38 @@ namespace NiiarGeneration
             return applicatDbContext.Customers.ToList();
         }
 
+        public void CustomerSaveOrAdd(Customer customer)
+        {
+            if (customer.Id != 0)
+            {
+                applicatDbContext.Customers.Attach(customer);
+                applicatDbContext.Entry(customer).State = EntityState.Modified;
+            }
+            else
+            {
+                applicatDbContext.Customers.Add(customer);
+            }
+            applicatDbContext.SaveChanges();
+        }
+
+        public bool CustomerDelete(Customer customer)
+        {
+            if (customer.Id == 0) return true;
+
+            if (applicatDbContext.ApplicatItems.Any(a => a.Customer.Id == customer.Id))
+            {
+                return false;
+            }
+
+            applicatDbContext.Customers.Attach(customer);
+            applicatDbContext.Entry(customer).State = EntityState.Deleted;
+            applicatDbContext.SaveChanges();
+
+            return true;
+        }
+
+       
+
         public Vehicle GetVehicle(long id)
         {
             return applicatDbContext.Vehincles.FirstOrDefault(vh => vh.Id == id);
@@ -108,7 +140,8 @@ namespace NiiarGeneration
 
         public void ApplicateSave(Applicat applicat)
         {
-            /* applicat = Normalize(applicat);
+
+            /*applicat = Normalize(applicat);
              applicatDbContext.Applicats.Attach(applicat);
              applicatDbContext.Entry(applicat).State = EntityState.Modified;          
 
@@ -123,8 +156,11 @@ namespace NiiarGeneration
             */
 
             Applicat sourseApplicat = applicatDbContext.Applicats.FirstOrDefault(sa => sa.Id == applicat.Id);
-            sourseApplicat.Type = applicat.Type;
-            sourseApplicat.Date = applicat.Date;
+
+            applicatDbContext.Entry(sourseApplicat).CurrentValues.SetValues(applicat);
+
+            //sourseApplicat.Type = applicat.Type;
+            //sourseApplicat.Date = applicat.Date;
 
             for (int index = 0; index < sourseApplicat.ApplicatItems.Count; index++)
             {
@@ -133,20 +169,33 @@ namespace NiiarGeneration
 
                 if (newItem != null)
                 {
-                    oldItem = newItem;
+                    applicatDbContext.Entry(oldItem).CurrentValues.SetValues(newItem);
+
+
+
+                    //sourseApplicat.ApplicatItems[index] = newItem;
+
+                    //ApplicatItem_Copy(newItem, ref oldItem);
+
+                    //oldItem.Customer = newItem.Customer;
+                    //oldItem.Delivery_Address = newItem.Delivery_Address;
+
+                    // oldItem = newItem;
                 }
                 else
-                    applicatDbContext.Entry(oldItem).State = EntityState.Deleted;
+                    applicatDbContext.Entry(oldItem).State = EntityState.Deleted; 
 
             }
 
             foreach (ApplicatItem applicatItem in applicat.ApplicatItems)
             {
-                if(applicatItem.Id == 0)
+                if (applicatItem.Id == 0)
                 {
+                    applicatItem.Applicat = null;
+
                     sourseApplicat.ApplicatItems.Add(applicatItem);
                 }
-                
+
             }
 
             applicatDbContext.SaveChanges();
@@ -161,8 +210,7 @@ namespace NiiarGeneration
 
             }*/
         }
-
-        
+              
 
         public void VehicleSave(Vehicle vehicle)
         {
@@ -172,6 +220,46 @@ namespace NiiarGeneration
             DeatchAll();
         }
 
+        //public void VehicleListSave(List <Vehicle> vehicles)      
+        //{
+        //    applicatDbContext.Vehincles.Attach(vehicles);
+        //    applicatDbContext.Entry(vehicles).State = EntityState.Modified;
+        //    applicatDbContext.SaveChanges();
+        //    DeatchAll();
+        //}
+
+       
+        public void TypeApplicateSaveOrAdd(TypeApplicat typeApplicat)
+        {
+            if(typeApplicat.Id != 0)
+            {
+                applicatDbContext.TypeApplicates.Attach(typeApplicat);
+                applicatDbContext.Entry(typeApplicat).State = EntityState.Modified;
+            }
+            else
+            {
+                applicatDbContext.TypeApplicates.Add(typeApplicat);
+            }
+            applicatDbContext.SaveChanges();
+        }
+
+        public bool TypeApplicateDelete(TypeApplicat typeApplicat)
+        {
+            if (typeApplicat.Id == 0) return true;
+
+            if (applicatDbContext.Applicats.Any(a => a.Type.Id == typeApplicat.Id))
+            {
+                return false;
+            }
+
+            applicatDbContext.TypeApplicates.Attach(typeApplicat);
+            applicatDbContext.Entry(typeApplicat).State = EntityState.Deleted;
+            //applicatDbContext.TypeApplicates.Remove(typeApplicat);
+            applicatDbContext.SaveChanges();
+
+            return true;
+        }
+                      
         private Applicat Normalize(Applicat applicat)
         {
             foreach(var ai in applicat.ApplicatItems)

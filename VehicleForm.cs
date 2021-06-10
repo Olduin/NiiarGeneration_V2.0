@@ -18,6 +18,8 @@ namespace NiiarGeneration
              
         int currentVehicle;
 
+        Repository repository;
+
         private BindingSource bindingSource;
 
         public VehicleForm(VehicleEditContext vehicleEditContext)
@@ -45,6 +47,9 @@ namespace NiiarGeneration
             currentVehicle = e.RowIndex;
             VehicleEditForm vehicleEditForm = new VehicleEditForm(vehicleEditContext, e.RowIndex);
             vehicleEditForm.ShowDialog();
+
+           //repository.VehicleSave();
+           
         }
 
         private void btAddItem_Click(object sender, EventArgs e)
@@ -57,6 +62,11 @@ namespace NiiarGeneration
         {
 
             this.dgVehicle.DataSource = vehicleEditContext.Vehincles;
+        }
+
+        private void SaveData()
+        {
+
         }
                 
         private void btCansel_Click_1(object sender, EventArgs e)
@@ -78,7 +88,6 @@ namespace NiiarGeneration
         private void btDelete_Click(object sender, EventArgs e)
         {
                 long delitedRowId = Convert.ToInt64(dgVehicle.CurrentRow.Cells[0].Value);
-
 
                 Vehicle delitedVh = vehicleEditContext.Vehincles.FirstOrDefault(vh => vh.Id == delitedRowId);
 
